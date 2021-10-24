@@ -1,0 +1,235 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="SushiSwap API #   API Endpoints for SushiSwap
+ API #  ExchangeV1 #  /legacy/ API documentation
+   METHOD ENDPOINT     GET  /catchall+   GET  /legacy/summary    GET  /legacy/tickers    GET  /legacy/assets    GET  /legacy/orderbook/pair     GET  /legacy/trades/pair     Swap #  /swap/ API documentation">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
+<meta property="og:description" content="SushiSwap API #   API Endpoints for SushiSwap
+ API #  ExchangeV1 #  /legacy/ API documentation
+   METHOD ENDPOINT     GET  /catchall+   GET  /legacy/summary    GET  /legacy/tickers    GET  /legacy/assets    GET  /legacy/orderbook/pair     GET  /legacy/trades/pair     Swap #  /swap/ API documentation">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://manifold.finance/hub/docs/openmev/sushi-api/"><meta property="article:section" content="docs">
+<meta property="article:modified_time" content="2021-10-24T09:01:32-07:00">
+<title>Sushi API | Manifold Finance Hub</title>
+<link rel=manifest href=/hub/manifest.json>
+<link rel=icon href=/hub/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/hub/book.min.95d69eb6bad8b9707ff2b5d8d9e31ce70a1b84f2ed7ffaf665ffcf00aa7993bd.css integrity="sha256-ldaetrrYuXB/8rXY2eMc5wobhPLtf/r2Zf/PAKp5k70=" crossorigin=anonymous>
+<script defer src=/hub/flexsearch.min.js></script>
+<script defer src=/hub/en.search.min.5cd52f9c7593ef5f8f6eb545bc83a85681a67c52745ccd0f3723e78233fbfe64.js integrity="sha256-XNUvnHWT71+PbrVFvIOoVoGmfFJ0XM0PNyPngjP7/mQ=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/hub/><span>Manifold Finance Hub</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li>
+<a href=http://manifold.finance/hub/docs/openmev/>OpenMEV Documentation</a>
+<ul>
+<li>
+<a href=http://manifold.finance/hub/docs/openmev/functions_table/>Functions Table</a>
+</li>
+<li>
+<a href=http://manifold.finance/hub/docs/openmev/rebate/>Rebate</a>
+</li>
+<li>
+<a href=http://manifold.finance/hub/docs/openmev/sushi-api/ class=active>Sushi API</a>
+</li>
+<li>
+<a href=http://manifold.finance/hub/docs/openmev/>OpenMEV Documentation</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<a href=/hub/posts/>
+Blog
+</a>
+</li>
+<li>
+<a href=https://github.com/manifoldfinance/hub target=_blank rel=noopener>
+View on Github
+</a>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/hub/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Sushi API</strong>
+<label for=toc-control>
+<img src=/hub/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#sushiswap-api>SushiSwap API</a>
+<ul>
+<li><a href=#api>API</a>
+<ul>
+<li><a href=#exchangev1>ExchangeV1</a></li>
+<li><a href=#swap>Swap</a></li>
+<li><a href=#license>License</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown><h1 id=sushiswap-api>
+SushiSwap API
+<a class=anchor href=#sushiswap-api>#</a>
+</h1>
+<blockquote>
+<p>API Endpoints for SushiSwap</p>
+</blockquote>
+<h2 id=api>
+API
+<a class=anchor href=#api>#</a>
+</h2>
+<h3 id=exchangev1>
+ExchangeV1
+<a class=anchor href=#exchangev1>#</a>
+</h3>
+<p><a href=docs/API.md><code>/legacy/</code> API documentation</a></p>
+<table>
+<thead>
+<tr>
+<th>METHOD</th>
+<th>ENDPOINT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET </code></td>
+<td><code>/catchall+</code></td>
+</tr>
+<tr>
+<td><code>GET </code></td>
+<td><code>/legacy/summary </code></td>
+</tr>
+<tr>
+<td><code>GET </code></td>
+<td><code>/legacy/tickers </code></td>
+</tr>
+<tr>
+<td><code>GET </code></td>
+<td><code>/legacy/assets</code></td>
+</tr>
+<tr>
+<td><code> GET </code></td>
+<td><code>/legacy/orderbook/pair </code></td>
+</tr>
+<tr>
+<td><code> GET </code></td>
+<td><code>/legacy/trades/pair </code></td>
+</tr>
+</tbody>
+</table>
+<h3 id=swap>
+Swap
+<a class=anchor href=#swap>#</a>
+</h3>
+<p><a href=docs/API.md><code>/swap/</code> API documentation</a></p>
+<table>
+<thead>
+<tr>
+<th>METHOD</th>
+<th>ENDPOINT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code> GET </code></td>
+<td><code>/swap/summary </code></td>
+</tr>
+<tr>
+<td><code>GET </code></td>
+<td><code>/swap/tickers </code></td>
+</tr>
+<tr>
+<td><code>GET </code></td>
+<td><code>/swap/assets </code></td>
+</tr>
+<tr>
+<td><code>GET </code></td>
+<td><code>/swap/orderbook/pair </code></td>
+</tr>
+<tr>
+<td><code>GET </code></td>
+<td><code>/swap/trades/pair </code></td>
+</tr>
+</tbody>
+</table>
+<h3 id=license>
+License
+<a class=anchor href=#license>#</a>
+</h3>
+<p>GPL-2.0</p>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+<div><a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/commit/18fac111c84e2b518b5b701b928c40b17ca6a88a title="Last modified by sam bacha | 24.10.2021" target=_blank rel=noopener>
+<img src=/hub/svg/calendar.svg class=book-icon alt=Calendar>
+<span>24.10.2021</span>
+</a>
+</div>
+<div>
+<a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/edit/main/content/content/docs/openmev/sushi-api.md target=_blank rel=noopener>
+<img src=/hub/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span>
+</a>
+</div>
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#sushiswap-api>SushiSwap API</a>
+<ul>
+<li><a href=#api>API</a>
+<ul>
+<li><a href=#exchangev1>ExchangeV1</a></li>
+<li><a href=#swap>Swap</a></li>
+<li><a href=#license>License</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>
