@@ -19,3 +19,6 @@ build.sh
 GoBuilds
 dist
 node_modules
+
+# Local Netlify folder
+.netlify
