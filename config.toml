@@ -1,4 +1,4 @@
-baseURL = "http://manifold.finance/hub"
+baseURL = "https://manifoldfinance.github.io/hub"
 languageCode = "en-us"
 title = "Manifold Finance Hub"
 

@@ -1,3 +1,9 @@
+---
+weight: 15
+title: SushiSwap Router Function Calls
+description: Table of %Percent Rebate
+---
+
 # SushiSwap Router Function Calls
 
 ## Router Function Calls

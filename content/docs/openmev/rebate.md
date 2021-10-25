@@ -1,3 +1,9 @@
+---
+weight: 15
+title: Rebating Transaction Costs
+description: Overview of OpenMEV Platform
+---
+
 # Rebating Transaction Costs
 
 Rebating a transaction is determined by:
