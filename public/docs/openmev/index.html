@@ -1,0 +1,195 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Knowledgebase for OpenMEV">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="OpenMEV Documentation">
+<meta property="og:description" content="Knowledgebase for OpenMEV">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://manifoldfinance.github.io/hub/docs/openmev/">
+<title>OpenMEV Documentation | Manifold Finance Hub</title>
+<link rel=manifest href=/hub/manifest.json>
+<link rel=icon href=/hub/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/hub/book.min.95d69eb6bad8b9707ff2b5d8d9e31ce70a1b84f2ed7ffaf665ffcf00aa7993bd.css integrity="sha256-ldaetrrYuXB/8rXY2eMc5wobhPLtf/r2Zf/PAKp5k70=" crossorigin=anonymous>
+<script defer src=/hub/flexsearch.min.js></script>
+<script defer src=/hub/en.search.min.4035c406cc1718caf8324cdecbd0258c1858b16c5f47522abdcc8a5c3444a020.js integrity="sha256-QDXEBswXGMr4Mkzey9AljBhYsWxfR1IqvcyKXDREoCA=" crossorigin=anonymous></script>
+<link rel=alternate type=application/rss+xml href=https://manifoldfinance.github.io/hub/docs/openmev/index.xml title="Manifold Finance Hub">
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/hub/><span>Manifold Finance Hub</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/ class=active>OpenMEV Documentation</a>
+<ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/rebate/>Rebating Transaction Costs</a>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/functions_table/>SushiSwap Router Function Calls</a>
+</li>
+</ul>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/sushiswap/sushi-api/>Sushi API</a>
+</li>
+<li class=book-section-flat>
+<span>Technical</span>
+<ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/technical/katex/>Katex</a>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/technical/mermaid/>Mermaid</a>
+</li>
+</ul>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/sushiswap/>OpenMEV Documentation</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href=/hub/posts/>
+Blog
+</a>
+</li>
+<li>
+<a href=https://github.com/manifoldfinance/hub target=_blank rel=noopener>
+View on Github
+</a>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/hub/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>OpenMEV Documentation</strong>
+<label for=toc-control>
+<img src=/hub/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#openmev-platform-documentation>OpenMEV Platform Documentation</a>
+<ul>
+<li><a href=#sushiswap>SushiSwap</a>
+<ul>
+<li><a href=#what-is-credible-neutrality>What is <code>credible neutrality</code>?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown><h1 id=openmev-platform-documentation>
+OpenMEV Platform Documentation
+<a class=anchor href=#openmev-platform-documentation>#</a>
+</h1>
+<ul>
+<li>Strategy and Implementation details</li>
+<li>End User information</li>
+<li>Help Desk and Troubleshooting</li>
+<li>Searcher Integration</li>
+<li>Formulas and Proofs</li>
+<li>Technical: Technical overview on specific category</li>
+</ul>
+<h2 id=sushiswap>
+SushiSwap
+<a class=anchor href=#sushiswap>#</a>
+</h2>
+<p>The SushiSwap integration provides a service that realizes profit by transaction
+batching for the purposes of arbitrage by controlling transaction ordering.</p>
+<p>Right now every user sends a transaction directly to the network mempool and
+thus give away the arbitrage, front-running, back-running opportunities to
+miners(or random bots).</p>
+<p>OpenMEV provides a credibly neutral platform that enables aggregation of
+transactions (batching) for the purposes of extracting MEV profits and returning
+them back to the traders.</p>
+<h3 id=what-is-credible-neutrality>
+What is <code>credible neutrality</code>?
+<a class=anchor href=#what-is-credible-neutrality>#</a>
+</h3>
+<blockquote>
+<p>&ldquo;&mldr;that it is not just neutrality that is required here, it is credible
+neutrality. That is, it is not just enough for a mechanism to not be designed
+to favor specific people or outcomes over others; it’s also crucially
+important for a mechanism to be able to convince a large and diverse group of
+people that the mechanism at least makes that basic effort to be fair.&rdquo;</p>
+<ul>
+<li>Vitalik Buterin,
+<a href=https://nakamoto.com/credible-neutrality/>credible neutrality as a guiding principle</a></li>
+</ul>
+</blockquote>
+<p>This ethos is at the heart of OpenMEV. Part of establishing credible neutrality
+is having a clear and comprehensive rulebook that regulates off-chain behavior
+and activities. Our assumption concerning governance is that methods and
+processes that work in legacy markets may not be applicable in adversarial
+environments such as permissionless blockchains. With that understanding it is
+important not to rely solely on such systems and mechanics long term.</p>
+<p>Discuss this and more on our
+<a href=https://forums.manifoldfinance.com>discourse forums</a></p>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+<div><a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/commit/29a4d03c8179a6bbeeda5adb267248f12b050186 title="Last modified by sam bacha | 25.10.2021" target=_blank rel=noopener>
+<img src=/hub/svg/calendar.svg class=book-icon alt=Calendar>
+<span>25.10.2021</span>
+</a>
+</div>
+<div>
+<a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/edit/main/content/content/docs/openmev/_index.md target=_blank rel=noopener>
+<img src=/hub/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span>
+</a>
+</div>
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#openmev-platform-documentation>OpenMEV Platform Documentation</a>
+<ul>
+<li><a href=#sushiswap>SushiSwap</a>
+<ul>
+<li><a href=#what-is-credible-neutrality>What is <code>credible neutrality</code>?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>
