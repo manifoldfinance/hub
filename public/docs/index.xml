@@ -1,6 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docs on Manifold Finance Hub</title><link>https://manifoldfinance.github.io/hub/docs/</link><description>Recent content in Docs on Manifold Finance Hub</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://manifoldfinance.github.io/hub/docs/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://manifoldfinance.github.io/hub/docs/sushiswap/sushi-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://manifoldfinance.github.io/hub/docs/sushiswap/sushi-api/</guid><description>SushiSwap API # API Endpoints for SushiSwap
-API # ExchangeV1 # /legacy/ API documentation
-METHOD ENDPOINT GET /catchall+ GET /legacy/summary GET /legacy/tickers GET /legacy/assets GET /legacy/orderbook/pair GET /legacy/trades/pair Swap # /swap/ API documentation</description></item><item><title>OpenMEV Documentation</title><link>https://manifoldfinance.github.io/hub/docs/sushiswap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://manifoldfinance.github.io/hub/docs/sushiswap/</guid><description>OpenMEV &amp;amp; Sushiswap # OpenMEV and Sushiswap work together to recapture lost MEV profits so that Sushi traders can trade for free (up to 95%) on the exchange.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on Manifold Finance Hub</title>
+    <link>https://manifoldfinance.github.io/hub/docs/</link>
+    <description>Recent content in Docs on Manifold Finance Hub</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://manifoldfinance.github.io/hub/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://manifoldfinance.github.io/hub/docs/sushiswap/sushi-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://manifoldfinance.github.io/hub/docs/sushiswap/sushi-api/</guid>
+      <description>SushiSwap API #   API Endpoints for SushiSwap
+ API #  ExchangeV1 #  /legacy/ API documentation
+   METHOD ENDPOINT     GET  /catchall+   GET  /legacy/summary    GET  /legacy/tickers    GET  /legacy/assets    GET  /legacy/orderbook/pair     GET  /legacy/trades/pair     Swap #  /swap/ API documentation</description>
+    </item>
+    
+    <item>
+      <title>OpenMEV Documentation</title>
+      <link>https://manifoldfinance.github.io/hub/docs/sushiswap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://manifoldfinance.github.io/hub/docs/sushiswap/</guid>
+      <description>OpenMEV &amp;amp; Sushiswap #  OpenMEV and Sushiswap work together to recapture lost MEV profits so that Sushi traders can trade for free (up to 95%) on the exchange.
 These are not gasless transactions, these are paid rebate transactions! You get paid to trade more using OpenMEV.
-Support and Help # !!! note We will never ask you to send tokens or coins anywhere!
-Support Page Discord Chat Trading for Free on Sushi.</description></item></channel></rss>
+Support and Help #  !!! note We will never ask you to send tokens or coins anywhere!
+ Support Page Discord Chat  Trading for Free on Sushi.</description>
+    </item>
+    
+  </channel>
+</rss>
