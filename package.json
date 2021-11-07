@@ -1,0 +1,20 @@
+{
+  "name": "@manifoldfinance/hub",
+  "version": "1.0.0",
+   "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manifoldfinance/hub.git"
+  },
+  "keywords": [],
+  "author": "Manifold Finance, Inc",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/manifoldfinance/hub/issues"
+  },
+  "homepage": "https://github.com/manifoldfinance/hub#readme"
+}
