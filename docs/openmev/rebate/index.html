@@ -1,0 +1,349 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Overview of OpenMEV Platform">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Rebating Transaction Costs">
+<meta property="og:description" content="Overview of OpenMEV Platform">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://manifoldfinance.github.io/hub/docs/openmev/rebate/"><meta property="article:section" content="docs">
+<meta property="article:modified_time" content="2021-10-25T06:43:21-07:00">
+<title>Rebating Transaction Costs | Manifold Finance Hub</title>
+<link rel=manifest href=/hub/manifest.json>
+<link rel=icon href=/hub/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/hub/book.min.95d69eb6bad8b9707ff2b5d8d9e31ce70a1b84f2ed7ffaf665ffcf00aa7993bd.css integrity="sha256-ldaetrrYuXB/8rXY2eMc5wobhPLtf/r2Zf/PAKp5k70=" crossorigin=anonymous>
+<script defer src=/hub/flexsearch.min.js></script>
+<script defer src=/hub/en.search.min.f681c12585e876bd7eead224bba91b449a1ac86173808aa58505d52da4ddf207.js integrity="sha256-9oHBJYXodr1+6tIku6kbRJoayGFzgIqlhQXVLaTd8gc=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/hub/><span>Manifold Finance Hub</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/>OpenMEV Documentation</a>
+<ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/rebate/ class=active>Rebating Transaction Costs</a>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/functions_table/>SushiSwap Router Function Calls</a>
+</li>
+</ul>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/sushiswap/sushi-api/>Sushi API</a>
+</li>
+<li class=book-section-flat>
+<span>Technical</span>
+<ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/technical/katex/>Katex</a>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/technical/mermaid/>Mermaid</a>
+</li>
+</ul>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/sushiswap/>OpenMEV Documentation</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href=/hub/posts/>
+Blog
+</a>
+</li>
+<li>
+<a href=https://github.com/manifoldfinance/hub target=_blank rel=noopener>
+View on Github
+</a>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/hub/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Rebating Transaction Costs</strong>
+<label for=toc-control>
+<img src=/hub/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#rebating-transaction-costs>Rebating Transaction Costs</a>
+<ul>
+<li><a href=#rebate-mechanism>Rebate Mechanism</a>
+<ul>
+<li><a href=#contract-function-eligibility>Contract Function Eligibility</a></li>
+</ul>
+</li>
+<li><a href=#rebate-calculations>Rebate Calculations</a>
+<ul>
+<li><a href=#workflow-diagram>Workflow Diagram</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown><h1 id=rebating-transaction-costs>
+Rebating Transaction Costs
+<a class=anchor href=#rebating-transaction-costs>#</a>
+</h1>
+<p>Rebating a transaction is determined by:</p>
+<ul>
+<li>
+<p>Is the function that is called in the transaction eligible?</p>
+<ul>
+<li>By tracking contract function calls we are better able to provide
+observability in the rebating process, we can also coordinate with teams
+wishing to provide more incentives for specific actions and behaviors</li>
+</ul>
+</li>
+<li>
+<p>If yes, what is the percentage that can be rebated?</p>
+<ul>
+<li>This percentage value is a protocol value that can be adjusted</li>
+</ul>
+</li>
+<li>
+<p>What is the transaction cost for the eligible transaction?</p>
+<ul>
+<li>Thi s the value that the end user utilized in submitting their transaction.</li>
+</ul>
+</li>
+<li>
+<p>Calculate the Gas Reporting Index value</p>
+<ul>
+<li>This uses the gas pricing information from api.txprice.com to calculate the
+gas pricing information to be used in calculating the rebate amount for your
+transaction</li>
+</ul>
+</li>
+<li>
+<p>Calculate the rebate amount from the bundle profit surplus</p>
+<ul>
+<li>We take how much profit the arbitrage made and split it among all eligible
+trades within that bundle</li>
+</ul>
+</li>
+</ul>
+<h2 id=rebate-mechanism>
+Rebate Mechanism
+<a class=anchor href=#rebate-mechanism>#</a>
+</h2>
+<ol>
+<li>
+<p>Eligible transactions are rebated based on the 80th confidence interval for
+gas estimation pricing.</p>
+</li>
+<li>
+<p>This is proportionally distributed based on transactional weight. <em>Note: a
+naive formula would consider pairings, then slippage tolerance and finally
+transactional amount</em></p>
+</li>
+<li>
+<p>The amount of compensation is the remainderless fees to miners and network
+operational transactional costs.</p>
+</li>
+<li>
+<p>Compensation payouts occur no later than a half hour</p>
+</li>
+</ol>
+<h3 id=contract-function-eligibility>
+Contract Function Eligibility
+<a class=anchor href=#contract-function-eligibility>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th style=text-align:center><strong>$function_calls</strong></th>
+<th style=text-align:center><strong>%eligible</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:center>swapExactTokensForTokens</td>
+<td style=text-align:center>100</td>
+</tr>
+<tr>
+<td style=text-align:center>swapExactTokensForETH</td>
+<td style=text-align:center>100</td>
+</tr>
+<tr>
+<td style=text-align:center>swapExactETHForTokens</td>
+<td style=text-align:center>100</td>
+</tr>
+<tr>
+<td style=text-align:center>swapETHForExactTokens</td>
+<td style=text-align:center>100</td>
+</tr>
+<tr>
+<td style=text-align:center>getAmountsOut</td>
+<td style=text-align:center>null</td>
+</tr>
+<tr>
+<td style=text-align:center>addLiquidityETH</td>
+<td style=text-align:center>50</td>
+</tr>
+<tr>
+<td style=text-align:center>addLiquidity</td>
+<td style=text-align:center>50</td>
+</tr>
+<tr>
+<td style=text-align:center>swapTokensForExactTokens</td>
+<td style=text-align:center>100</td>
+</tr>
+<tr>
+<td style=text-align:center>getAmountOut</td>
+<td style=text-align:center>null</td>
+</tr>
+<tr>
+<td style=text-align:center>removeLiquidityETHWithPermit</td>
+<td style=text-align:center>100</td>
+</tr>
+<tr>
+<td style=text-align:center>swapTokensForExactETH</td>
+<td style=text-align:center>100</td>
+</tr>
+<tr>
+<td style=text-align:center>removeLiquidityWithPermit</td>
+<td style=text-align:center>25</td>
+</tr>
+<tr>
+<td style=text-align:center>removeLiquidityETH</td>
+<td style=text-align:center>25</td>
+</tr>
+<tr>
+<td style=text-align:center>removeLiquidity</td>
+<td style=text-align:center>25</td>
+</tr>
+<tr>
+<td style=text-align:center>factory</td>
+<td style=text-align:center>null</td>
+</tr>
+<tr>
+<td style=text-align:center>swapExactTokensForETHSupportingFeeOnTransferTokens</td>
+<td style=text-align:center>#</td>
+</tr>
+<tr>
+<td style=text-align:center>swapExactTokensForTokensSupportingFeeOnTransferTokens</td>
+<td style=text-align:center>#</td>
+</tr>
+<tr>
+<td style=text-align:center>getAmountsIn</td>
+<td style=text-align:center>null</td>
+</tr>
+<tr>
+<td style=text-align:center>WETH</td>
+<td style=text-align:center>null</td>
+</tr>
+<tr>
+<td style=text-align:center>swapExactETHForTokensSupportingFeeOnTransferTokens</td>
+<td style=text-align:center>#</td>
+</tr>
+<tr>
+<td style=text-align:center>getAmountIn</td>
+<td style=text-align:center>null</td>
+</tr>
+<tr>
+<td style=text-align:center>removeLiquidityETHWithPermitSupportingFeeOnTransferTokens</td>
+<td style=text-align:center>#</td>
+</tr>
+<tr>
+<td style=text-align:center>removeLiquidityETHSupportingFeeOnTransferTokens</td>
+<td style=text-align:center>#</td>
+</tr>
+</tbody>
+</table>
+<h2 id=rebate-calculations>
+Rebate Calculations
+<a class=anchor href=#rebate-calculations>#</a>
+</h2>
+<p><em>Note</em>: naive implementation, expect changes</p>
+<p>bundleCost = mev bribe + bundleTxs[1,2,&mldr;]</p>
+<p>gasAllowance = mev bribe - bundleTxs[1,2,&mldr;]</p>
+<p>BundleTransactionGas[1,2,&mldr;] = Individual Gas Cost</p>
+<p>BundleId = The Block Number (or hash?) in which the bundle was included</p>
+<p>max_gasRebate = (BundleId(BundleTransactionGas[1,2,&mldr;]))</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+  <span style=color:#f92672>&#34;confidence&#34;</span>: <span style=color:#ae81ff>80</span>,
+  <span style=color:#f92672>&#34;price&#34;</span>: <span style=color:#ae81ff>150</span>,
+  <span style=color:#f92672>&#34;maxPriorityFeePerGas&#34;</span>: <span style=color:#ae81ff>1.75</span>,
+  <span style=color:#f92672>&#34;maxFeePerGas&#34;</span>: <span style=color:#ae81ff>100</span>
+}
+</code></pre></div><h3 id=workflow-diagram>
+Workflow Diagram
+<a class=anchor href=#workflow-diagram>#</a>
+</h3>
+<p><image src=/GAS_REBATE.svg alt=gas-rebate-diagram width={750} height={750}></p>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+<div><a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/commit/98fb95c75affb955cf1177577ff9f83efd201146 title="Last modified by sam bacha | 25.10.2021" target=_blank rel=noopener>
+<img src=/hub/svg/calendar.svg class=book-icon alt=Calendar>
+<span>25.10.2021</span>
+</a>
+</div>
+<div>
+<a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/edit/main/content/content/docs/openmev/rebate.md target=_blank rel=noopener>
+<img src=/hub/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span>
+</a>
+</div>
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#rebating-transaction-costs>Rebating Transaction Costs</a>
+<ul>
+<li><a href=#rebate-mechanism>Rebate Mechanism</a>
+<ul>
+<li><a href=#contract-function-eligibility>Contract Function Eligibility</a></li>
+</ul>
+</li>
+<li><a href=#rebate-calculations>Rebate Calculations</a>
+<ul>
+<li><a href=#workflow-diagram>Workflow Diagram</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>

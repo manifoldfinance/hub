@@ -11,15 +11,15 @@ Purpose of this document #  The point of this document is to explain representat
  #  
 Purpose of this document #  The point of this document is to explain representation of data in Solidity for the purposes of locating and decoding it; more specifically, for writing a line debugger that does such. As such, other information about the type system or data layout that aren&rsquo;t necessary for that may be skipped; and where location is not entirely predictable but may be determined by other systems of the debugger, we may rely on that.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="http://manifold.finance/hub/posts/evm-lowlevel/"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://manifoldfinance.github.io/hub/posts/evm-lowlevel/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-10-02T00:00:00+00:00">
-<meta property="article:modified_time" content="2021-10-02T00:00:00+00:00">
+<meta property="article:modified_time" content="2021-10-25T06:22:43-07:00">
 <title>(EVM) Primer | Manifold Finance Hub</title>
 <link rel=manifest href=/hub/manifest.json>
 <link rel=icon href=/hub/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/hub/book.min.95d69eb6bad8b9707ff2b5d8d9e31ce70a1b84f2ed7ffaf665ffcf00aa7993bd.css integrity="sha256-ldaetrrYuXB/8rXY2eMc5wobhPLtf/r2Zf/PAKp5k70=" crossorigin=anonymous>
 <script defer src=/hub/flexsearch.min.js></script>
-<script defer src=/hub/en.search.min.6963b2dd05c8f4425261830e02407e1ac60a5b7e9bced228bf0fa48846fe6a42.js integrity="sha256-aWOy3QXI9EJSYYMOAkB+GsYKW36bztIovw+kiEb+akI=" crossorigin=anonymous></script>
+<script defer src=/hub/en.search.min.f681c12585e876bd7eead224bba91b449a1ac86173808aa58505d52da4ddf207.js integrity="sha256-9oHBJYXodr1+6tIku6kbRJoayGFzgIqlhQXVLaTd8gc=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -38,6 +38,34 @@ Purpose of this document #  The point of this document is to explain representat
 <ul id=book-search-results></ul>
 </div>
 <ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/>OpenMEV Documentation</a>
+<ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/rebate/>Rebating Transaction Costs</a>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/functions_table/>SushiSwap Router Function Calls</a>
+</li>
+</ul>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/sushiswap/sushi-api/>Sushi API</a>
+</li>
+<li class=book-section-flat>
+<span>Technical</span>
+<ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/technical/katex/>Katex</a>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/technical/mermaid/>Mermaid</a>
+</li>
+</ul>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/sushiswap/>OpenMEV Documentation</a>
+</li>
 </ul>
 <ul>
 <li>
@@ -1538,6 +1566,11 @@ leave a storage pointer uninitialized, it is not legal to delete one.)</p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
+<div><a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/commit/29a4d03c8179a6bbeeda5adb267248f12b050186 title="Last modified by sam bacha | 25.10.2021" target=_blank rel=noopener>
+<img src=/hub/svg/calendar.svg class=book-icon alt=Calendar>
+<span>25.10.2021</span>
+</a>
+</div>
 <div>
 <a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/edit/main/content/content/posts/evm-lowlevel.md target=_blank rel=noopener>
 <img src=/hub/svg/edit.svg class=book-icon alt=Edit>
