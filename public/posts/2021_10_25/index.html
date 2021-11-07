@@ -1,296 +1,125 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html><html lang=en dir=ltr>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="2021.10.25 - Community update #   New Developer and Community Hub https://manifoldfinance.github.io/hub/ Starting point and organizational checkpoint for providing updates and engaging with each other   Reduce the effort to get updates and find historical updates Reduce the &lsquo;mission creep&rsquo; that was happening (multiple different repos for documentation, hard to keep up if casual end user) Reduce effort of formulating and providing updates  Mitigating Security Issues #  In the course of working with the sushi team, we caught a &lsquo;supply chain attack&rsquo; npm package (this was actually apart of an unclaimed bug bounty) A repository is produced here: https://github.">
-<meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="2021.10.25 - Community update #   New Developer and Community Hub https://manifoldfinance.github.io/hub/ Starting point and organizational checkpoint for providing updates and engaging with each other   Reduce the effort to get updates and find historical updates Reduce the &lsquo;mission creep&rsquo; that was happening (multiple different repos for documentation, hard to keep up if casual end user) Reduce effort of formulating and providing updates  Mitigating Security Issues #  In the course of working with the sushi team, we caught a &lsquo;supply chain attack&rsquo; npm package (this was actually apart of an unclaimed bug bounty) A repository is produced here: https://github." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://manifoldfinance.github.io/hub/posts/2021_10_25/" /><meta property="article:section" content="posts" />
-
-<meta property="article:modified_time" content="2021-10-25T08:08:37-07:00" />
-
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="2021.10.25 - Community update #   New Developer and Community Hub https://manifoldfinance.github.io/hub/ Starting point and organizational checkpoint for providing updates and engaging with each other   Reduce the effort to get updates and find historical updates Reduce the &lsquo;mission creep&rsquo; that was happening (multiple different repos for documentation, hard to keep up if casual end user) Reduce effort of formulating and providing updates  Mitigating Security Issues #  In the course of working with the sushi team, we caught a &lsquo;supply chain attack&rsquo; npm package (this was actually apart of an unclaimed bug bounty) A repository is produced here: https://github.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
+<meta property="og:description" content="2021.10.25 - Community update #   New Developer and Community Hub https://manifoldfinance.github.io/hub/ Starting point and organizational checkpoint for providing updates and engaging with each other   Reduce the effort to get updates and find historical updates Reduce the &lsquo;mission creep&rsquo; that was happening (multiple different repos for documentation, hard to keep up if casual end user) Reduce effort of formulating and providing updates  Mitigating Security Issues #  In the course of working with the sushi team, we caught a &lsquo;supply chain attack&rsquo; npm package (this was actually apart of an unclaimed bug bounty) A repository is produced here: https://github.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://manifoldfinance.github.io/hub/posts/2021_10_25/"><meta property="article:section" content="posts">
+<meta property="article:modified_time" content="2021-10-25T08:08:37-07:00">
 <title>2021 10 25 | Manifold Finance Hub</title>
-<link rel="manifest" href="/hub/manifest.json">
-<link rel="icon" href="/hub/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/hub/book.min.95d69eb6bad8b9707ff2b5d8d9e31ce70a1b84f2ed7ffaf665ffcf00aa7993bd.css" integrity="sha256-ldaetrrYuXB/8rXY2eMc5wobhPLtf/r2Zf/PAKp5k70=" crossorigin="anonymous">
-  <script defer src="/hub/flexsearch.min.js"></script>
-  <script defer src="/hub/en.search.min.f681c12585e876bd7eead224bba91b449a1ac86173808aa58505d52da4ddf207.js" integrity="sha256-9oHBJYXodr1&#43;6tIku6kbRJoayGFzgIqlhQXVLaTd8gc=" crossorigin="anonymous"></script>
-<!--
-Made with Book Theme
-https://github.com/alex-shpak/hugo-book
--->
-  
+<link rel=manifest href=/hub/manifest.json>
+<link rel=icon href=/hub/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/hub/book.min.95d69eb6bad8b9707ff2b5d8d9e31ce70a1b84f2ed7ffaf665ffcf00aa7993bd.css integrity="sha256-ldaetrrYuXB/8rXY2eMc5wobhPLtf/r2Zf/PAKp5k70=" crossorigin=anonymous>
+<script defer src=/hub/flexsearch.min.js></script>
+<script defer src=/hub/en.search.min.f681c12585e876bd7eead224bba91b449a1ac86173808aa58505d52da4ddf207.js integrity="sha256-9oHBJYXodr1+6tIku6kbRJoayGFzgIqlhQXVLaTd8gc=" crossorigin=anonymous></script>
 </head>
-<body dir="ltr">
-  <input type="checkbox" class="hidden toggle" id="menu-control" />
-  <input type="checkbox" class="hidden toggle" id="toc-control" />
-  <main class="container flex">
-    <aside class="book-menu">
-      <div class="book-menu-content">
-        
-  <nav>
-<h2 class="book-brand">
-  <a class="flex align-center" href="/hub/"><span>Manifold Finance Hub</span>
-  </a>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/hub/><span>Manifold Finance Hub</span>
+</a>
 </h2>
-
-
-<div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
-  <div class="book-search-spinner hidden"></div>
-  <ul id="book-search-results"></ul>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://manifoldfinance.github.io/hub/docs/openmev/" class="">OpenMEV Documentation</a>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://manifoldfinance.github.io/hub/docs/openmev/rebate/" class="">Rebating Transaction Costs</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://manifoldfinance.github.io/hub/docs/openmev/functions_table/" class="">SushiSwap Router Function Calls</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://manifoldfinance.github.io/hub/docs/sushiswap/sushi-api/" class="">Sushi API</a>
-  
-
-        </li>
-      
-    
-      
-        <li class="book-section-flat" >
-          
-  
-  
-
-  
-    <span>Technical</span>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://manifoldfinance.github.io/hub/docs/technical/katex/" class="">Katex</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://manifoldfinance.github.io/hub/docs/technical/mermaid/" class="">Mermaid</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://manifoldfinance.github.io/hub/docs/sushiswap/" class="">OpenMEV Documentation</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-
-
-
-
-
-
-
-
-
-
-  
 <ul>
-  
-  <li>
-    <a href="/hub/posts/" >
-        Blog
-      </a>
-  </li>
-  
-  <li>
-    <a href="https://github.com/manifoldfinance/hub" target="_blank" rel="noopener">
-        View on Github
-      </a>
-  </li>
-  
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/>OpenMEV Documentation</a>
+<ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/rebate/>Rebating Transaction Costs</a>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/functions_table/>SushiSwap Router Function Calls</a>
+</li>
 </ul>
-
-
-
-
-
-
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/sushiswap/sushi-api/>Sushi API</a>
+</li>
+<li class=book-section-flat>
+<span>Technical</span>
+<ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/technical/katex/>Katex</a>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/technical/mermaid/>Mermaid</a>
+</li>
+</ul>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/sushiswap/>OpenMEV Documentation</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href=/hub/posts/>
+Blog
+</a>
+</li>
+<li>
+<a href=https://github.com/manifoldfinance/hub target=_blank rel=noopener>
+View on Github
+</a>
+</li>
+</ul>
 </nav>
-
-
-
-
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
-
-
- 
-      </div>
-    </aside>
-
-    <div class="book-page">
-      <header class="book-header">
-        
-  <div class="flex align-center justify-between">
-  <label for="menu-control">
-    <img src="/hub/svg/menu.svg" class="book-icon" alt="Menu" />
-  </label>
-
-  <strong>2021 10 25</strong>
-
-  <label for="toc-control">
-    
-    <img src="/hub/svg/toc.svg" class="book-icon" alt="Table of Contents" />
-    
-  </label>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 </div>
-
-
-  
-  <aside class="hidden clearfix">
-    
-  
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#20211025---community-update">2021.10.25 - Community update</a></li>
-        <li><a href="#mitigating-security-issues">Mitigating Security Issues</a>
-          <ul>
-            <li><a href="#openmev">OpenMEV</a></li>
-            <li><a href="#how-does-openmevs-infrastructure-operate-in-suboptimal-conditions">How does OpenMEV&rsquo;s infrastructure operate in suboptimal conditions?</a></li>
-          </ul>
-        </li>
-        <li><a href="#contracts-and-staking">Contracts and Staking</a></li>
-        <li><a href="#developer-and-searcher-services">Developer and Searcher Services</a></li>
-      </ul>
-    </li>
-  </ul>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/hub/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>2021 10 25</strong>
+<label for=toc-control>
+<img src=/hub/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#20211025---community-update>2021.10.25 - Community update</a></li>
+<li><a href=#mitigating-security-issues>Mitigating Security Issues</a>
+<ul>
+<li><a href=#openmev>OpenMEV</a></li>
+<li><a href=#how-does-openmevs-infrastructure-operate-in-suboptimal-conditions>How does OpenMEV&rsquo;s infrastructure operate in suboptimal conditions?</a></li>
+</ul>
+</li>
+<li><a href=#contracts-and-staking>Contracts and Staking</a></li>
+<li><a href=#developer-and-searcher-services>Developer and Searcher Services</a></li>
+</ul>
+</li>
+</ul>
 </nav>
-
-
-
-  </aside>
-  
- 
-      </header>
-
-      
-      
-<article class="markdown">
-  <h1>
-    <a href="/hub/posts/2021_10_25/">2021 10 25</a>
-  </h1>
-  
-
-
-  
-
-  
-
-
-
-<h2 id="20211025---community-update">
-  2021.10.25 - Community update
-  <a class="anchor" href="#20211025---community-update">#</a>
+</aside>
+</header>
+<article class=markdown>
+<h1>
+<a href=/hub/posts/2021_10_25/>2021 10 25</a>
+</h1>
+<h2 id=20211025---community-update>
+2021.10.25 - Community update
+<a class=anchor href=#20211025---community-update>#</a>
 </h2>
 <ul>
 <li>New Developer and Community Hub
-<a href="https://manifoldfinance.github.io/hub/">https://manifoldfinance.github.io/hub/</a>
+<a href=https://manifoldfinance.github.io/hub/>https://manifoldfinance.github.io/hub/</a>
 Starting point and organizational checkpoint for providing updates and engaging with each other</li>
 </ul>
 <ul>
@@ -298,12 +127,12 @@ Starting point and organizational checkpoint for providing updates and engaging 
 <li>Reduce the &lsquo;mission creep&rsquo; that was happening (multiple different repos for documentation, hard to keep up if casual end user)</li>
 <li>Reduce effort of formulating and providing updates</li>
 </ul>
-<h2 id="mitigating-security-issues">
-  Mitigating Security Issues
-  <a class="anchor" href="#mitigating-security-issues">#</a>
+<h2 id=mitigating-security-issues>
+Mitigating Security Issues
+<a class=anchor href=#mitigating-security-issues>#</a>
 </h2>
 <p>In the course of working with the sushi team, we caught a &lsquo;supply chain attack&rsquo; npm package (this was actually apart of an unclaimed bug bounty)
-A repository is produced here: <a href="https://github.com/sambacha/openzeppelin-splinter">https://github.com/sambacha/openzeppelin-splinter</a></p>
+A repository is produced here: <a href=https://github.com/sambacha/openzeppelin-splinter>https://github.com/sambacha/openzeppelin-splinter</a></p>
 <p>Through a mix of versioning package managers (yarn vs npm) a downstream dependency of the Sushiswap interface (also the Uniswap interface) could become compromised. The TLDR is:</p>
 <blockquote>
 <p>the package name includes the versioning. it correctly maps to the proper openzeppelin-solidity however the package name was not taken until months afterwards</p>
@@ -311,131 +140,84 @@ A repository is produced here: <a href="https://github.com/sambacha/openzeppelin
 <blockquote>
 <p>&ldquo;openzeppelin-solidity-2.3.0&rdquo;: &ldquo;npm:openzeppelin-solidity@2.3.0&rdquo;</p>
 </blockquote>
-<h3 id="openmev">
-  OpenMEV
-  <a class="anchor" href="#openmev">#</a>
+<h3 id=openmev>
+OpenMEV
+<a class=anchor href=#openmev>#</a>
 </h3>
 <ul>
 <li>currently onboarding 3-4 new searchers to participate in the sushi process with us</li>
 <li>released flashbots fork of mev-geth, as flashbots has decided to not support <code>eth_callBundle</code> RPC Method
 <blockquote>
-<p><a href="https://github.com/openmev/docker-hub">docker container</a> &amp; <a href="https://github.com/openmev/go-ethereum">go-ethereum MEV</a></p>
+<p><a href=https://github.com/openmev/docker-hub>docker container</a> & <a href=https://github.com/openmev/go-ethereum>go-ethereum MEV</a></p>
 </blockquote>
 </li>
 </ul>
-<h3 id="how-does-openmevs-infrastructure-operate-in-suboptimal-conditions">
-  How does OpenMEV&rsquo;s infrastructure operate in suboptimal conditions?
-  <a class="anchor" href="#how-does-openmevs-infrastructure-operate-in-suboptimal-conditions">#</a>
+<h3 id=how-does-openmevs-infrastructure-operate-in-suboptimal-conditions>
+How does OpenMEV&rsquo;s infrastructure operate in suboptimal conditions?
+<a class=anchor href=#how-does-openmevs-infrastructure-operate-in-suboptimal-conditions>#</a>
 </h3>
 <p>This will be expanded in an article, and if you have additional questions please ask in discord, the forums or telegram. The quick summary is like this:</p>
-<p>For state and error recovery, we use a weight system similar to this: <a href="https://github.com/sambacha/web3-rpc-failover">https://github.com/sambacha/web3-rpc-failover</a></p>
-<p>For predictive analytics (i.e. knowing ahead of time that we may have issues soon) you can see this repo here that explores Littles Law and backpressure/data plane routing: <a href="https://github.com/sambacha/capacity">https://github.com/sambacha/capacity</a>  . This is especially relevant towards end users as we measure how long it takes for a transaction to be mined vs. the parameters of the transaction when it was first sent. Here is some sample results for the simulation capacity repo to help you better understand what we are discussing:</p>
+<p>For state and error recovery, we use a weight system similar to this: <a href=https://github.com/sambacha/web3-rpc-failover>https://github.com/sambacha/web3-rpc-failover</a></p>
+<p>For predictive analytics (i.e. knowing ahead of time that we may have issues soon) you can see this repo here that explores Littles Law and backpressure/data plane routing: <a href=https://github.com/sambacha/capacity>https://github.com/sambacha/capacity</a> . This is especially relevant towards end users as we measure how long it takes for a transaction to be mined vs. the parameters of the transaction when it was first sent. Here is some sample results for the simulation capacity repo to help you better understand what we are discussing:</p>
 <pre><code>client sends 5 requests per second and receives between 2.4 rps and 2.7 rps (HTTP 200)
 proxy oscillates between 4 and 6 in-flight requests
 origin processes between 2.7 and 3 requests per second
 origin has served requests with average latency 2.2 seconds
 origin has served 50% of requests (50th percentile) within 2 seconds
 origin has served 99% of requests (99th percentile) within 3 seconds with periodic spikes
-</code></pre><h2 id="contracts-and-staking">
-  Contracts and Staking
-  <a class="anchor" href="#contracts-and-staking">#</a>
+</code></pre><h2 id=contracts-and-staking>
+Contracts and Staking
+<a class=anchor href=#contracts-and-staking>#</a>
 </h2>
-<p>Contracts for deploying strategies and trades are in their preliminary acceptance phase, a.k.a Release Candidate. Contracts are located in the <a href="https://github.com/manifoldfinance/manifold-sdk">Manifold SDK monorepo here</a>. The First deployed strategy will be the USD strategy for Fiat / Crypto On/Off ramp usage.</p>
+<p>Contracts for deploying strategies and trades are in their preliminary acceptance phase, a.k.a Release Candidate. Contracts are located in the <a href=https://github.com/manifoldfinance/manifold-sdk>Manifold SDK monorepo here</a>. The First deployed strategy will be the USD strategy for Fiat / Crypto On/Off ramp usage.</p>
 <p>Staking and DAO beta testing will be in 3 weeks.</p>
-<h2 id="developer-and-searcher-services">
-  Developer and Searcher Services
-  <a class="anchor" href="#developer-and-searcher-services">#</a>
+<h2 id=developer-and-searcher-services>
+Developer and Searcher Services
+<a class=anchor href=#developer-and-searcher-services>#</a>
 </h2>
 <p>We are working on providing a custom plugin module system that will allow end users to load or provide a custom go module that enables new and unique RPC methods for their own private usage. We have had a few people ask about this idea i general and plan on supporting it. In addition users can purchase per RPC method requests to our service in a pay-for-what-you-use model. Pricing will be denominated in GxGas, the standard fixed unit of account of gwei. Gwei costs are paid via $FOLD.</p>
 </article>
- 
-      
-
-      <footer class="book-footer">
-        
-  <div class="flex flex-wrap justify-between">
-
-
-  <div><a class="flex align-center" href="https://github.com/manifoldfinance/hub.github.io/commit/3e0c2029365947d9e56ca4e20df5fb907e4786c8" title='Last modified by sam bacha | 25.10.2021' target="_blank" rel="noopener">
-      <img src="/hub/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>25.10.2021</span>
-    </a>
-  </div>
-
-
-
-  <div>
-    <a class="flex align-center" href="https://github.com/manifoldfinance/hub.github.io/edit/main/content/content/posts/2021_10_25.md" target="_blank" rel="noopener">
-      <img src="/hub/svg/edit.svg" class="book-icon" alt="Edit" />
-      <span>Edit this page</span>
-    </a>
-  </div>
-
-
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+<div><a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/commit/3e0c2029365947d9e56ca4e20df5fb907e4786c8 title="Last modified by sam bacha | 25.10.2021" target=_blank rel=noopener>
+<img src=/hub/svg/calendar.svg class=book-icon alt=Calendar>
+<span>25.10.2021</span>
+</a>
 </div>
-
-
-
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
-
-
- 
-        
-      </footer>
-
-      
-  
-  <div class="book-comments">
-
+<div>
+<a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/edit/main/content/content/posts/2021_10_25.md target=_blank rel=noopener>
+<img src=/hub/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span>
+</a>
 </div>
-  
- 
-
-      <label for="menu-control" class="hidden book-menu-overlay"></label>
-    </div>
-
-    
-    <aside class="book-toc">
-      <div class="book-toc-content">
-        
-  
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#20211025---community-update">2021.10.25 - Community update</a></li>
-        <li><a href="#mitigating-security-issues">Mitigating Security Issues</a>
-          <ul>
-            <li><a href="#openmev">OpenMEV</a></li>
-            <li><a href="#how-does-openmevs-infrastructure-operate-in-suboptimal-conditions">How does OpenMEV&rsquo;s infrastructure operate in suboptimal conditions?</a></li>
-          </ul>
-        </li>
-        <li><a href="#contracts-and-staking">Contracts and Staking</a></li>
-        <li><a href="#developer-and-searcher-services">Developer and Searcher Services</a></li>
-      </ul>
-    </li>
-  </ul>
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#20211025---community-update>2021.10.25 - Community update</a></li>
+<li><a href=#mitigating-security-issues>Mitigating Security Issues</a>
+<ul>
+<li><a href=#openmev>OpenMEV</a></li>
+<li><a href=#how-does-openmevs-infrastructure-operate-in-suboptimal-conditions>How does OpenMEV&rsquo;s infrastructure operate in suboptimal conditions?</a></li>
+</ul>
+</li>
+<li><a href=#contracts-and-staking>Contracts and Staking</a></li>
+<li><a href=#developer-and-searcher-services>Developer and Searcher Services</a></li>
+</ul>
+</li>
+</ul>
 </nav>
-
-
- 
-      </div>
-    </aside>
-    
-  </main>
-
-  
+</div>
+</aside>
+</main>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

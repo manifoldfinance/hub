@@ -1,322 +1,151 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html><html lang=en dir=ltr>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="async/await is just the do-notation of the Promise monad #   source gist
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="async/await is just the do-notation of the Promise monad #   source gist
  CertSimple just wrote a blog post arguing ES2017&rsquo;s async/await was the best thing to happen with JavaScript. I wholeheartedly agree.
 In short, one of the (few?) good things about JavaScript used to be how well it handled asynchronous requests. This was mostly thanks to its Scheme-inherited implementation of functions and closures. That, though, was also one of its worst faults, because it led to the &ldquo;callback hell&rdquo;, an seemingly unavoidable pattern that made highly asynchronous JS code almost unreadable.">
-<meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
 <meta property="og:description" content="async/await is just the do-notation of the Promise monad #   source gist
  CertSimple just wrote a blog post arguing ES2017&rsquo;s async/await was the best thing to happen with JavaScript. I wholeheartedly agree.
-In short, one of the (few?) good things about JavaScript used to be how well it handled asynchronous requests. This was mostly thanks to its Scheme-inherited implementation of functions and closures. That, though, was also one of its worst faults, because it led to the &ldquo;callback hell&rdquo;, an seemingly unavoidable pattern that made highly asynchronous JS code almost unreadable." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://manifoldfinance.github.io/hub/posts/promise_monad/" /><meta property="article:section" content="posts" />
-
-<meta property="article:modified_time" content="2021-10-25T06:43:21-07:00" />
-
+In short, one of the (few?) good things about JavaScript used to be how well it handled asynchronous requests. This was mostly thanks to its Scheme-inherited implementation of functions and closures. That, though, was also one of its worst faults, because it led to the &ldquo;callback hell&rdquo;, an seemingly unavoidable pattern that made highly asynchronous JS code almost unreadable.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://manifoldfinance.github.io/hub/posts/promise_monad/"><meta property="article:section" content="posts">
+<meta property="article:modified_time" content="2021-10-25T06:43:21-07:00">
 <title>Promise Monad | Manifold Finance Hub</title>
-<link rel="manifest" href="/hub/manifest.json">
-<link rel="icon" href="/hub/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/hub/book.min.95d69eb6bad8b9707ff2b5d8d9e31ce70a1b84f2ed7ffaf665ffcf00aa7993bd.css" integrity="sha256-ldaetrrYuXB/8rXY2eMc5wobhPLtf/r2Zf/PAKp5k70=" crossorigin="anonymous">
-  <script defer src="/hub/flexsearch.min.js"></script>
-  <script defer src="/hub/en.search.min.f681c12585e876bd7eead224bba91b449a1ac86173808aa58505d52da4ddf207.js" integrity="sha256-9oHBJYXodr1&#43;6tIku6kbRJoayGFzgIqlhQXVLaTd8gc=" crossorigin="anonymous"></script>
-<!--
-Made with Book Theme
-https://github.com/alex-shpak/hugo-book
--->
-  
+<link rel=manifest href=/hub/manifest.json>
+<link rel=icon href=/hub/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/hub/book.min.95d69eb6bad8b9707ff2b5d8d9e31ce70a1b84f2ed7ffaf665ffcf00aa7993bd.css integrity="sha256-ldaetrrYuXB/8rXY2eMc5wobhPLtf/r2Zf/PAKp5k70=" crossorigin=anonymous>
+<script defer src=/hub/flexsearch.min.js></script>
+<script defer src=/hub/en.search.min.f681c12585e876bd7eead224bba91b449a1ac86173808aa58505d52da4ddf207.js integrity="sha256-9oHBJYXodr1+6tIku6kbRJoayGFzgIqlhQXVLaTd8gc=" crossorigin=anonymous></script>
 </head>
-<body dir="ltr">
-  <input type="checkbox" class="hidden toggle" id="menu-control" />
-  <input type="checkbox" class="hidden toggle" id="toc-control" />
-  <main class="container flex">
-    <aside class="book-menu">
-      <div class="book-menu-content">
-        
-  <nav>
-<h2 class="book-brand">
-  <a class="flex align-center" href="/hub/"><span>Manifold Finance Hub</span>
-  </a>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/hub/><span>Manifold Finance Hub</span>
+</a>
 </h2>
-
-
-<div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
-  <div class="book-search-spinner hidden"></div>
-  <ul id="book-search-results"></ul>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://manifoldfinance.github.io/hub/docs/openmev/" class="">OpenMEV Documentation</a>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://manifoldfinance.github.io/hub/docs/openmev/rebate/" class="">Rebating Transaction Costs</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://manifoldfinance.github.io/hub/docs/openmev/functions_table/" class="">SushiSwap Router Function Calls</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://manifoldfinance.github.io/hub/docs/sushiswap/sushi-api/" class="">Sushi API</a>
-  
-
-        </li>
-      
-    
-      
-        <li class="book-section-flat" >
-          
-  
-  
-
-  
-    <span>Technical</span>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://manifoldfinance.github.io/hub/docs/technical/katex/" class="">Katex</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://manifoldfinance.github.io/hub/docs/technical/mermaid/" class="">Mermaid</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://manifoldfinance.github.io/hub/docs/sushiswap/" class="">OpenMEV Documentation</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-
-
-
-
-
-
-
-
-
-
-  
 <ul>
-  
-  <li>
-    <a href="/hub/posts/" >
-        Blog
-      </a>
-  </li>
-  
-  <li>
-    <a href="https://github.com/manifoldfinance/hub" target="_blank" rel="noopener">
-        View on Github
-      </a>
-  </li>
-  
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/>OpenMEV Documentation</a>
+<ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/rebate/>Rebating Transaction Costs</a>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/functions_table/>SushiSwap Router Function Calls</a>
+</li>
 </ul>
-
-
-
-
-
-
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/sushiswap/sushi-api/>Sushi API</a>
+</li>
+<li class=book-section-flat>
+<span>Technical</span>
+<ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/technical/katex/>Katex</a>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/technical/mermaid/>Mermaid</a>
+</li>
+</ul>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/sushiswap/>OpenMEV Documentation</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href=/hub/posts/>
+Blog
+</a>
+</li>
+<li>
+<a href=https://github.com/manifoldfinance/hub target=_blank rel=noopener>
+View on Github
+</a>
+</li>
+</ul>
 </nav>
-
-
-
-
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
-
-
- 
-      </div>
-    </aside>
-
-    <div class="book-page">
-      <header class="book-header">
-        
-  <div class="flex align-center justify-between">
-  <label for="menu-control">
-    <img src="/hub/svg/menu.svg" class="book-icon" alt="Menu" />
-  </label>
-
-  <strong>Promise Monad</strong>
-
-  <label for="toc-control">
-    
-    <img src="/hub/svg/toc.svg" class="book-icon" alt="Table of Contents" />
-    
-  </label>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 </div>
-
-
-  
-  <aside class="hidden clearfix">
-    
-  
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#asyncawait-is-just-the-do-notation-of-the-promise-monad">async/await is just the do-notation of the Promise monad</a></li>
-        <li><a href="#wrong-solution-callback-hell">Wrong solution: callback hell</a>
-          <ul>
-            <li><a href="#almost-correct-solution-promises">Almost correct solution: Promises</a></li>
-            <li><a href="#correct-solution-asyncawait">Correct solution: async/await</a></li>
-          </ul>
-        </li>
-        <li><a href="#the-origins-of-the-callback-hell">The origins of the callback hell</a></li>
-        <li><a href="#monads-and-do-notation">Monads and do-notation</a></li>
-      </ul>
-    </li>
-  </ul>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/hub/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Promise Monad</strong>
+<label for=toc-control>
+<img src=/hub/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#asyncawait-is-just-the-do-notation-of-the-promise-monad>async/await is just the do-notation of the Promise monad</a></li>
+<li><a href=#wrong-solution-callback-hell>Wrong solution: callback hell</a>
+<ul>
+<li><a href=#almost-correct-solution-promises>Almost correct solution: Promises</a></li>
+<li><a href=#correct-solution-asyncawait>Correct solution: async/await</a></li>
+</ul>
+</li>
+<li><a href=#the-origins-of-the-callback-hell>The origins of the callback hell</a></li>
+<li><a href=#monads-and-do-notation>Monads and do-notation</a></li>
+</ul>
+</li>
+</ul>
 </nav>
-
-
-
-  </aside>
-  
- 
-      </header>
-
-      
-      
-<article class="markdown">
-  <h1>
-    <a href="/hub/posts/promise_monad/">Promise Monad</a>
-  </h1>
-  
-
-
-  
-
-  
-
-
-
-<h2 id="asyncawait-is-just-the-do-notation-of-the-promise-monad">
-  async/await is just the do-notation of the Promise monad
-  <a class="anchor" href="#asyncawait-is-just-the-do-notation-of-the-promise-monad">#</a>
+</aside>
+</header>
+<article class=markdown>
+<h1>
+<a href=/hub/posts/promise_monad/>Promise Monad</a>
+</h1>
+<h2 id=asyncawait-is-just-the-do-notation-of-the-promise-monad>
+async/await is just the do-notation of the Promise monad
+<a class=anchor href=#asyncawait-is-just-the-do-notation-of-the-promise-monad>#</a>
 </h2>
 <blockquote>
-<p><a href="https://gist.githubusercontent.com/MaiaVictor/bc0c02b6d1fbc7e3dbae838fb1376c80/raw/0cace9c7c992f9ee8121afc6adf90395e7264ae0/promise_monad.md">source gist</a></p>
+<p><a href=https://gist.githubusercontent.com/MaiaVictor/bc0c02b6d1fbc7e3dbae838fb1376c80/raw/0cace9c7c992f9ee8121afc6adf90395e7264ae0/promise_monad.md>source gist</a></p>
 </blockquote>
-<p><a href="https://certsimple.com">CertSimple</a> just wrote a <a href="https://certsimple.com/blog/javascript-equals-async-await">blog post</a> arguing ES2017&rsquo;s async/await was the best thing to happen with JavaScript. I wholeheartedly agree.</p>
+<p><a href=https://certsimple.com>CertSimple</a> just wrote a <a href=https://certsimple.com/blog/javascript-equals-async-await>blog post</a> arguing ES2017&rsquo;s async/await was the best thing to happen with JavaScript. I wholeheartedly agree.</p>
 <p>In short, one of the (few?) good things about JavaScript used to be how well it handled asynchronous requests. This was mostly thanks to its Scheme-inherited implementation of functions and closures. That, though, was also one of its worst faults, because it led to the &ldquo;callback hell&rdquo;, an seemingly unavoidable pattern that made highly asynchronous JS code almost unreadable. Many solutions attempted to solve that, but most failed. Promises almost did it, but failed too. Finally, async/await is here and, combined with Promises, it solves the problem for good. On this post, I&rsquo;ll explain why that is the case and trace a link between promises, async/await, the do-notation and monads.</p>
 <p>First, let&rsquo;s illustrate the 3 styles by implementing a function that returns the balances of all your Ethereum accounts.</p>
-<h2 id="wrong-solution-callback-hell">
-  Wrong solution: callback hell
-  <a class="anchor" href="#wrong-solution-callback-hell">#</a>
+<h2 id=wrong-solution-callback-hell>
+Wrong solution: callback hell
+<a class=anchor href=#wrong-solution-callback-hell>#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBalances</span>(<span style="color:#a6e22e">callback</span>) {
-  <span style="color:#a6e22e">web3</span>.<span style="color:#a6e22e">eth</span>.<span style="color:#a6e22e">accounts</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">accounts</span>) {
-    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">err</span>) {
-      <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">err</span>);
-    } <span style="color:#66d9ef">else</span> {
-      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">balances</span> <span style="color:#f92672">=</span> {};
-      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">balancesCount</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-      <span style="color:#a6e22e">accounts</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">i</span>) {
-        <span style="color:#a6e22e">web3</span>.<span style="color:#a6e22e">eth</span>.<span style="color:#a6e22e">getbalance</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">balance</span>) {
-          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">err</span>) {
-            <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">err</span>);
-          } <span style="color:#66d9ef">else</span> {
-            <span style="color:#a6e22e">balances</span>[<span style="color:#a6e22e">account</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">balance</span>;
-            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">++</span><span style="color:#a6e22e">balancesCount</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">accounts</span>.<span style="color:#a6e22e">length</span>) {
-              <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">balances</span>);
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getBalances</span>(<span style=color:#a6e22e>callback</span>) {
+  <span style=color:#a6e22e>web3</span>.<span style=color:#a6e22e>eth</span>.<span style=color:#a6e22e>accounts</span>(<span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>err</span>, <span style=color:#a6e22e>accounts</span>) {
+    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>err</span>) {
+      <span style=color:#a6e22e>callback</span>(<span style=color:#a6e22e>err</span>);
+    } <span style=color:#66d9ef>else</span> {
+      <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>balances</span> <span style=color:#f92672>=</span> {};
+      <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>balancesCount</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+      <span style=color:#a6e22e>accounts</span>.<span style=color:#a6e22e>forEach</span>(<span style=color:#66d9ef>function</span>(<span style=color:#a6e22e>account</span>, <span style=color:#a6e22e>i</span>) {
+        <span style=color:#a6e22e>web3</span>.<span style=color:#a6e22e>eth</span>.<span style=color:#a6e22e>getbalance</span>(<span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>err</span>, <span style=color:#a6e22e>balance</span>) {
+          <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>err</span>) {
+            <span style=color:#a6e22e>callback</span>(<span style=color:#a6e22e>err</span>);
+          } <span style=color:#66d9ef>else</span> {
+            <span style=color:#a6e22e>balances</span>[<span style=color:#a6e22e>account</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>balance</span>;
+            <span style=color:#66d9ef>if</span> (<span style=color:#f92672>++</span><span style=color:#a6e22e>balancesCount</span> <span style=color:#f92672>===</span> <span style=color:#a6e22e>accounts</span>.<span style=color:#a6e22e>length</span>) {
+              <span style=color:#a6e22e>callback</span>(<span style=color:#66d9ef>null</span>, <span style=color:#a6e22e>balances</span>);
             }
           }
         });
@@ -336,14 +165,14 @@ https://github.com/alex-shpak/hugo-book
 <p>Unavoidable nesting.</p>
 </li>
 </ol>
-<h3 id="almost-correct-solution-promises">
-  Almost correct solution: Promises
-  <a class="anchor" href="#almost-correct-solution-promises">#</a>
+<h3 id=almost-correct-solution-promises>
+Almost correct solution: Promises
+<a class=anchor href=#almost-correct-solution-promises>#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBalances</span>() {
-  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">web3</span>.<span style="color:#a6e22e">eth</span>.<span style="color:#a6e22e">accounts</span>()
-    .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">accounts</span> =&gt; Promise.<span style="color:#a6e22e">all</span>(<span style="color:#a6e22e">accounts</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">web3</span>.<span style="color:#a6e22e">eth</span>.<span style="color:#a6e22e">getBalance</span>))
-      .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">balances</span> =&gt; <span style="color:#a6e22e">Ramda</span>.<span style="color:#a6e22e">zipObject</span>(<span style="color:#a6e22e">accounts</span>, <span style="color:#a6e22e">balances</span>)));
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getBalances</span>() {
+  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>web3</span>.<span style=color:#a6e22e>eth</span>.<span style=color:#a6e22e>accounts</span>()
+    .<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>accounts</span> =&gt; Promise.<span style=color:#a6e22e>all</span>(<span style=color:#a6e22e>accounts</span>.<span style=color:#a6e22e>map</span>(<span style=color:#a6e22e>web3</span>.<span style=color:#a6e22e>eth</span>.<span style=color:#a6e22e>getBalance</span>))
+      .<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>balances</span> =&gt; <span style=color:#a6e22e>Ramda</span>.<span style=color:#a6e22e>zipObject</span>(<span style=color:#a6e22e>accounts</span>, <span style=color:#a6e22e>balances</span>)));
 }
 </code></pre></div><p>Promises are first-class terms representing future values. They can be created at will, chained and returned from functions. They almost solve the 3 problems above.</p>
 <ol>
@@ -358,161 +187,114 @@ https://github.com/alex-shpak/hugo-book
 </li>
 </ol>
 <p>There is one leftover problem, though: <code>.then()</code> still requires nesting in some cases. On my example, for one, the second <code>.then()</code> had to be inside the first, otherwise <code>accounts</code> wouldn&rsquo;t be in scope. This forced me to indent the code right. This situation can sometimes be fixed by passing the value ahead:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBalances</span>() {
-  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">web3</span>.<span style="color:#a6e22e">eth</span>.<span style="color:#a6e22e">accounts</span>()
-    .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">accounts</span> =&gt; Promise.<span style="color:#a6e22e">all</span>(<span style="color:#a6e22e">accounts</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">web3</span>.<span style="color:#a6e22e">eth</span>.<span style="color:#a6e22e">getBalance</span>).<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">balances</span> =&gt; [<span style="color:#a6e22e">accounts</span>, <span style="color:#a6e22e">balances</span>])))
-    .<span style="color:#a6e22e">then</span>(([<span style="color:#a6e22e">accounts</span>, <span style="color:#a6e22e">balances</span>]) =&gt; <span style="color:#a6e22e">Ramda</span>.<span style="color:#a6e22e">zipObject</span>(<span style="color:#a6e22e">accounts</span>, <span style="color:#a6e22e">balances</span>));
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getBalances</span>() {
+  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>web3</span>.<span style=color:#a6e22e>eth</span>.<span style=color:#a6e22e>accounts</span>()
+    .<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>accounts</span> =&gt; Promise.<span style=color:#a6e22e>all</span>(<span style=color:#a6e22e>accounts</span>.<span style=color:#a6e22e>map</span>(<span style=color:#a6e22e>web3</span>.<span style=color:#a6e22e>eth</span>.<span style=color:#a6e22e>getBalance</span>).<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>balances</span> =&gt; [<span style=color:#a6e22e>accounts</span>, <span style=color:#a6e22e>balances</span>])))
+    .<span style=color:#a6e22e>then</span>(([<span style=color:#a6e22e>accounts</span>, <span style=color:#a6e22e>balances</span>]) =&gt; <span style=color:#a6e22e>Ramda</span>.<span style=color:#a6e22e>zipObject</span>(<span style=color:#a6e22e>accounts</span>, <span style=color:#a6e22e>balances</span>));
 }
 </code></pre></div><p>But that is verbose and, as such, won&rsquo;t work if you have a complex dependency tree, forcing you to indent everything again. In short, Promises solve the callback hell for most cases, but not all.</p>
-<h3 id="correct-solution-asyncawait">
-  Correct solution: async/await
-  <a class="anchor" href="#correct-solution-asyncawait">#</a>
+<h3 id=correct-solution-asyncawait>
+Correct solution: async/await
+<a class=anchor href=#correct-solution-asyncawait>#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBalances</span>() {
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">accounts</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">web3</span>.<span style="color:#a6e22e">eth</span>.<span style="color:#a6e22e">accounts</span>();
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">balances</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> Promise.<span style="color:#a6e22e">all</span>(<span style="color:#a6e22e">accounts</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">web3</span>.<span style="color:#a6e22e">eth</span>.<span style="color:#a6e22e">getBalance</span>));
-  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Ramda</span>.<span style="color:#a6e22e">zipObject</span>(<span style="color:#a6e22e">balances</span>, <span style="color:#a6e22e">accounts</span>);
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getBalances</span>() {
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>accounts</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>web3</span>.<span style=color:#a6e22e>eth</span>.<span style=color:#a6e22e>accounts</span>();
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>balances</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> Promise.<span style=color:#a6e22e>all</span>(<span style=color:#a6e22e>accounts</span>.<span style=color:#a6e22e>map</span>(<span style=color:#a6e22e>web3</span>.<span style=color:#a6e22e>eth</span>.<span style=color:#a6e22e>getBalance</span>));
+  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>Ramda</span>.<span style=color:#a6e22e>zipObject</span>(<span style=color:#a6e22e>balances</span>, <span style=color:#a6e22e>accounts</span>);
 }
 </code></pre></div><p>The new <code>async</code> functions allow you to use <code>await</code>, which causes the function to wait for the promise to resolve before continuing its execution. With that, we&rsquo;re able to solve the indenting problem once for all, for any arbitrary code. Now, I&rsquo;ll explain why that is the case. Before, though, let&rsquo;s talk about the actual origin of the problem.</p>
-<h2 id="the-origins-of-the-callback-hell">
-  The origins of the callback hell
-  <a class="anchor" href="#the-origins-of-the-callback-hell">#</a>
+<h2 id=the-origins-of-the-callback-hell>
+The origins of the callback hell
+<a class=anchor href=#the-origins-of-the-callback-hell>#</a>
 </h2>
 <p>Many associate the &ldquo;callback hell&rdquo; with asynchronous values, but the problem is much more widespread than that: it naturally arises anytime computation must be performed on &ldquo;wrapped&rdquo; values that are accessed through callbacks. For a simple example, suppose that you wanted to print all the combinations of numbers from the arrays <code>[1,2,3]</code>, <code>[4,5,6]</code>, <code>[7,8,9]</code>. This is a way to do it:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>].<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">x</span>) =&gt; {
-  [<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>].<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">y</span>) =&gt; {
-    [<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>].<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">z</span>) =&gt; { 
-      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">x</span>,<span style="color:#a6e22e">y</span>,<span style="color:#a6e22e">z</span>);
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript>[<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>].<span style=color:#a6e22e>map</span>((<span style=color:#a6e22e>x</span>) =&gt; {
+  [<span style=color:#ae81ff>4</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>6</span>].<span style=color:#a6e22e>map</span>((<span style=color:#a6e22e>y</span>) =&gt; {
+    [<span style=color:#ae81ff>7</span>,<span style=color:#ae81ff>8</span>,<span style=color:#ae81ff>9</span>].<span style=color:#a6e22e>map</span>((<span style=color:#a6e22e>z</span>) =&gt; { 
+      <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>x</span>,<span style=color:#a6e22e>y</span>,<span style=color:#a6e22e>z</span>);
     })
   })
 });
-</code></pre></div><p>Notice how the familiar nesting shows up here: it is caused by the same inherent issue that causes the callback hell. Compare <code>[1,2,3].map(x =&gt; ...)</code> to <code>promise.then(x =&gt; ...)</code>. If mapping over nested arrays was as common as dealing with asynchronous values, by 2018 we&rsquo;d probably have an <code>multi/pick</code> syntax:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">multi</span> <span style="color:#66d9ef">function</span> () {
-  <span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pick</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>];
-  <span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pick</span> [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>];
-  <span style="color:#a6e22e">z</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pick</span> [<span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>];
-  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>, <span style="color:#a6e22e">z</span>);
+</code></pre></div><p>Notice how the familiar nesting shows up here: it is caused by the same inherent issue that causes the callback hell. Compare <code>[1,2,3].map(x => ...)</code> to <code>promise.then(x => ...)</code>. If mapping over nested arrays was as common as dealing with asynchronous values, by 2018 we&rsquo;d probably have an <code>multi/pick</code> syntax:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#a6e22e>multi</span> <span style=color:#66d9ef>function</span> () {
+  <span style=color:#a6e22e>x</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pick</span> [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>];
+  <span style=color:#a6e22e>y</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pick</span> [<span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>];
+  <span style=color:#a6e22e>z</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pick</span> [<span style=color:#ae81ff>7</span>, <span style=color:#ae81ff>8</span>, <span style=color:#ae81ff>9</span>];
+  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>y</span>, <span style=color:#a6e22e>z</span>);
 }
-</code></pre></div><p>&hellip; which is exactly equivalent to <code>async/await</code>, except that, instead of implementing terms that can be defined in a future, it implements terms that can have multiple values simultaneously.</p>
-<h2 id="monads-and-do-notation">
-  Monads and do-notation
-  <a class="anchor" href="#monads-and-do-notation">#</a>
+</code></pre></div><p>&mldr; which is exactly equivalent to <code>async/await</code>, except that, instead of implementing terms that can be defined in a future, it implements terms that can have multiple values simultaneously.</p>
+<h2 id=monads-and-do-notation>
+Monads and do-notation
+<a class=anchor href=#monads-and-do-notation>#</a>
 </h2>
 <p>In some languages such as Haskell and Idris, values which can be wrapped and chained in arbitrary ways are much more common. As such, they had to develop a way to deal with all of them, not just a specific case. Their solution was to specify an &ldquo;interface&rdquo; for wrappeable/chainable values, and a special syntax to flatten arbitrary chains of wrapped values.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#75715e">// Pseudo-code of an interface for wrappeable/chainable values.
-</span><span style="color:#75715e">// `wrap` receives a value and wraps it.
-</span><span style="color:#75715e">// `chain` receives a wrapped value, a callback and returns a wrapped value.
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Wrapper</span>&lt;<span style="color:#f92672">W</span>&gt; {
-  <span style="color:#a6e22e">wrap</span>&lt;<span style="color:#f92672">A</span>&gt;(<span style="color:#a6e22e">value</span>:<span style="color:#66d9ef">A</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">W</span>&lt;<span style="color:#f92672">A</span>&gt;,
-  <span style="color:#a6e22e">chain</span>&lt;<span style="color:#f92672">A</span><span style="color:#960050;background-color:#1e0010">,</span><span style="color:#a6e22e">B</span>&gt;(<span style="color:#a6e22e">value</span>:<span style="color:#66d9ef">W</span>&lt;<span style="color:#f92672">A</span>&gt;, <span style="color:#a6e22e">callback</span>: <span style="color:#66d9ef">A</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">W</span>&lt;<span style="color:#f92672">B</span>&gt;)<span style="color:#f92672">:</span> <span style="color:#a6e22e">W</span>&lt;<span style="color:#f92672">B</span>&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=color:#75715e>// Pseudo-code of an interface for wrappeable/chainable values.
+</span><span style=color:#75715e>// `wrap` receives a value and wraps it.
+</span><span style=color:#75715e>// `chain` receives a wrapped value, a callback and returns a wrapped value.
+</span><span style=color:#75715e></span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Wrapper</span>&lt;<span style=color:#f92672>W</span>&gt; {
+  <span style=color:#a6e22e>wrap</span>&lt;<span style=color:#f92672>A</span>&gt;(<span style=color:#a6e22e>value</span>:<span style=color:#66d9ef>A</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>W</span>&lt;<span style=color:#f92672>A</span>&gt;,
+  <span style=color:#a6e22e>chain</span>&lt;<span style=color:#f92672>A</span><span style=color:#960050;background-color:#1e0010>,</span><span style=color:#a6e22e>B</span>&gt;(<span style=color:#a6e22e>value</span>:<span style=color:#66d9ef>W</span>&lt;<span style=color:#f92672>A</span>&gt;, <span style=color:#a6e22e>callback</span>: <span style=color:#66d9ef>A</span> <span style=color:#f92672>=&gt;</span> <span style=color:#a6e22e>W</span>&lt;<span style=color:#f92672>B</span>&gt;)<span style=color:#f92672>:</span> <span style=color:#a6e22e>W</span>&lt;<span style=color:#f92672>B</span>&gt;
 }
-</code></pre></div><p>The syntax was called the <a href="https://en.wikibooks.org/wiki/Haskell/do_notation">do-notation</a>, and the interface was named &ldquo;Monad&rdquo;. Thanks those 2 insights, they have, since <a href="http://code.haskell.org/~dons/haskell-1990-2000/msg01481.html">1995</a>, been free from their &ldquo;callback hell&rdquo; problem. That is why JavaScript finally did it too. If you squint a little bit, JS Promises are just monads of future values that can throw: <code>Promise.resolve(value)</code> implements <code>wrap</code>, and <code>value.then(callback)</code> implements <code>chain</code>. Under that point of view, <code>async/await</code> is just the <code>do-notation</code> for that specific monad, providing the same kind of arbitrary chain flattening. It is, ultimately, the same solution and, given that it worked so well on Haskell, it is reasonable to assume it will work on JavaScript too.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-haskell" data-lang="haskell"><span style="color:#75715e">-- Monad is just a fancy name for the Wrapper interface above</span>
-<span style="color:#66d9ef">class</span> <span style="color:#66d9ef">Monad</span> m <span style="color:#66d9ef">where</span>
-  return <span style="color:#f92672">::</span> a <span style="color:#f92672">-&gt;</span> m a                 <span style="color:#75715e">-- wrap</span>
-  (<span style="color:#f92672">&gt;&gt;=</span>)  <span style="color:#f92672">::</span> m a <span style="color:#f92672">-&gt;</span> (a <span style="color:#f92672">-&gt;</span> m b) <span style="color:#f92672">-&gt;</span> m b <span style="color:#75715e">-- chain</span>
+</code></pre></div><p>The syntax was called the <a href=https://en.wikibooks.org/wiki/Haskell/do_notation>do-notation</a>, and the interface was named &ldquo;Monad&rdquo;. Thanks those 2 insights, they have, since <a href=http://code.haskell.org/~dons/haskell-1990-2000/msg01481.html>1995</a>, been free from their &ldquo;callback hell&rdquo; problem. That is why JavaScript finally did it too. If you squint a little bit, JS Promises are just monads of future values that can throw: <code>Promise.resolve(value)</code> implements <code>wrap</code>, and <code>value.then(callback)</code> implements <code>chain</code>. Under that point of view, <code>async/await</code> is just the <code>do-notation</code> for that specific monad, providing the same kind of arbitrary chain flattening. It is, ultimately, the same solution and, given that it worked so well on Haskell, it is reasonable to assume it will work on JavaScript too.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#75715e>-- Monad is just a fancy name for the Wrapper interface above</span>
+<span style=color:#66d9ef>class</span> <span style=color:#66d9ef>Monad</span> m <span style=color:#66d9ef>where</span>
+  return <span style=color:#f92672>::</span> a <span style=color:#f92672>-&gt;</span> m a                 <span style=color:#75715e>-- wrap</span>
+  (<span style=color:#f92672>&gt;&gt;=</span>)  <span style=color:#f92672>::</span> m a <span style=color:#f92672>-&gt;</span> (a <span style=color:#f92672>-&gt;</span> m b) <span style=color:#f92672>-&gt;</span> m b <span style=color:#75715e>-- chain</span>
   
-<span style="color:#75715e">-- Promises are monads, so we can make an instance for it</span>
-<span style="color:#66d9ef">instance</span> <span style="color:#66d9ef">Monad</span> <span style="color:#66d9ef">Promise</span> <span style="color:#66d9ef">where</span>
-  return value       <span style="color:#f92672">=</span> <span style="color:#66d9ef">Promise</span><span style="color:#f92672">.</span>resolve value
-  value <span style="color:#f92672">&gt;&gt;=</span> callback <span style="color:#f92672">=</span> <span style="color:#66d9ef">Promise</span><span style="color:#f92672">.</span><span style="color:#66d9ef">then</span> value callback
+<span style=color:#75715e>-- Promises are monads, so we can make an instance for it</span>
+<span style=color:#66d9ef>instance</span> <span style=color:#66d9ef>Monad</span> <span style=color:#66d9ef>Promise</span> <span style=color:#66d9ef>where</span>
+  return value       <span style=color:#f92672>=</span> <span style=color:#66d9ef>Promise</span><span style=color:#f92672>.</span>resolve value
+  value <span style=color:#f92672>&gt;&gt;=</span> callback <span style=color:#f92672>=</span> <span style=color:#66d9ef>Promise</span><span style=color:#f92672>.</span><span style=color:#66d9ef>then</span> value callback
 
-<span style="color:#75715e">-- Then the do-syntax becomes equivalent to async/await</span>
-<span style="color:#a6e22e">getBalances</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">Promise</span> (<span style="color:#66d9ef">Map</span> <span style="color:#66d9ef">String</span> <span style="color:#66d9ef">String</span>)
-<span style="color:#a6e22e">getBalances</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">do</span>
-  accounts <span style="color:#f92672">&lt;-</span> getAccounts
-  balances <span style="color:#f92672">&lt;-</span> getBalance accounts
-  return (<span style="color:#66d9ef">Map</span><span style="color:#f92672">.</span>fromList (zip accounts balances))
-</code></pre></div><p>Now everything is good and JavaScript is great again, yet I wonder why it took so long. If only the community listened <a href="https://github.com/promises-aplus/promises-spec/issues/94">that crazy guy</a> about 5 years ago&hellip;</p>
+<span style=color:#75715e>-- Then the do-syntax becomes equivalent to async/await</span>
+<span style=color:#a6e22e>getBalances</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Promise</span> (<span style=color:#66d9ef>Map</span> <span style=color:#66d9ef>String</span> <span style=color:#66d9ef>String</span>)
+<span style=color:#a6e22e>getBalances</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>do</span>
+  accounts <span style=color:#f92672>&lt;-</span> getAccounts
+  balances <span style=color:#f92672>&lt;-</span> getBalance accounts
+  return (<span style=color:#66d9ef>Map</span><span style=color:#f92672>.</span>fromList (zip accounts balances))
+</code></pre></div><p>Now everything is good and JavaScript is great again, yet I wonder why it took so long. If only the community listened <a href=https://github.com/promises-aplus/promises-spec/issues/94>that crazy guy</a> about 5 years ago&mldr;</p>
 </article>
- 
-      
-
-      <footer class="book-footer">
-        
-  <div class="flex flex-wrap justify-between">
-
-
-  <div><a class="flex align-center" href="https://github.com/manifoldfinance/hub.github.io/commit/98fb95c75affb955cf1177577ff9f83efd201146" title='Last modified by sam bacha | 25.10.2021' target="_blank" rel="noopener">
-      <img src="/hub/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>25.10.2021</span>
-    </a>
-  </div>
-
-
-
-  <div>
-    <a class="flex align-center" href="https://github.com/manifoldfinance/hub.github.io/edit/main/content/content/posts/promise_monad.md" target="_blank" rel="noopener">
-      <img src="/hub/svg/edit.svg" class="book-icon" alt="Edit" />
-      <span>Edit this page</span>
-    </a>
-  </div>
-
-
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+<div><a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/commit/98fb95c75affb955cf1177577ff9f83efd201146 title="Last modified by sam bacha | 25.10.2021" target=_blank rel=noopener>
+<img src=/hub/svg/calendar.svg class=book-icon alt=Calendar>
+<span>25.10.2021</span>
+</a>
 </div>
-
-
-
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
-
-
- 
-        
-      </footer>
-
-      
-  
-  <div class="book-comments">
-
+<div>
+<a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/edit/main/content/content/posts/promise_monad.md target=_blank rel=noopener>
+<img src=/hub/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span>
+</a>
 </div>
-  
- 
-
-      <label for="menu-control" class="hidden book-menu-overlay"></label>
-    </div>
-
-    
-    <aside class="book-toc">
-      <div class="book-toc-content">
-        
-  
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#asyncawait-is-just-the-do-notation-of-the-promise-monad">async/await is just the do-notation of the Promise monad</a></li>
-        <li><a href="#wrong-solution-callback-hell">Wrong solution: callback hell</a>
-          <ul>
-            <li><a href="#almost-correct-solution-promises">Almost correct solution: Promises</a></li>
-            <li><a href="#correct-solution-asyncawait">Correct solution: async/await</a></li>
-          </ul>
-        </li>
-        <li><a href="#the-origins-of-the-callback-hell">The origins of the callback hell</a></li>
-        <li><a href="#monads-and-do-notation">Monads and do-notation</a></li>
-      </ul>
-    </li>
-  </ul>
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#asyncawait-is-just-the-do-notation-of-the-promise-monad>async/await is just the do-notation of the Promise monad</a></li>
+<li><a href=#wrong-solution-callback-hell>Wrong solution: callback hell</a>
+<ul>
+<li><a href=#almost-correct-solution-promises>Almost correct solution: Promises</a></li>
+<li><a href=#correct-solution-asyncawait>Correct solution: async/await</a></li>
+</ul>
+</li>
+<li><a href=#the-origins-of-the-callback-hell>The origins of the callback hell</a></li>
+<li><a href=#monads-and-do-notation>Monads and do-notation</a></li>
+</ul>
+</li>
+</ul>
 </nav>
-
-
- 
-      </div>
-    </aside>
-    
-  </main>
-
-  
+</div>
+</aside>
+</main>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
