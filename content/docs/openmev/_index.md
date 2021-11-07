@@ -14,6 +14,17 @@ description: Knowledgebase for OpenMEV
 - Formulas and Proofs
 - Technical: Technical overview on specific category
 
+## SDK
+
+NodeJS Packaging
+
+- [@openmev/ethers-provider](https://github.com/manifoldfinance/openmev-provider) 
+- [use-react-wallet](https://github.com/manifoldfinance/openmev-sdk/tree/fix/repo-subdir/packages/use-react-wallet)
+  * react-hook with zustand state mgmt for providing wallet connectivity to OpenMEV RPC Endpoints
+- [@openmev/sdk](https://github.com/manifoldfinance/openmev-sdk/tree/master)
+
+Do you require integration in a different programming language? Reach out to us and we can help facilitate a solution for you
+
 ## SushiSwap
 
 The SushiSwap integration provides a service that realizes profit by transaction
