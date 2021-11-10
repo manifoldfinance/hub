@@ -1,0 +1,202 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="DAO Corollary, For Teams #   F.K.A. Amdahl&rsquo;s Corollary
+ The most efficient way to implement a piece of software is to do it all yourself.
+No time is wasted communicating (or arguing); everything that needs to be done is done by the same person, which increases their ability to maintain the software; and the code is by default way more consistent.
+Turns out “more efficient” doesn’t mean “faster”. When there are more people working on the same problem, we can parallelized more at once.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="DAO_Corollary">
+<meta property="og:description" content="DAO Corollary, For Teams #   F.K.A. Amdahl&rsquo;s Corollary
+ The most efficient way to implement a piece of software is to do it all yourself.
+No time is wasted communicating (or arguing); everything that needs to be done is done by the same person, which increases their ability to maintain the software; and the code is by default way more consistent.
+Turns out “more efficient” doesn’t mean “faster”. When there are more people working on the same problem, we can parallelized more at once.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://manifoldfinance.github.io/hub/posts/dao_corollary/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-11-10T09:30:40-08:00">
+<meta property="article:modified_time" content="2021-11-10T09:30:40-08:00">
+<title>DAO_Corollary | Manifold Finance Hub</title>
+<link rel=manifest href=/hub/manifest.json>
+<link rel=icon href=/hub/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/hub/book.min.95d69eb6bad8b9707ff2b5d8d9e31ce70a1b84f2ed7ffaf665ffcf00aa7993bd.css integrity="sha256-ldaetrrYuXB/8rXY2eMc5wobhPLtf/r2Zf/PAKp5k70=" crossorigin=anonymous>
+<script defer src=/hub/flexsearch.min.js></script>
+<script defer src=/hub/en.search.min.3d99d950679491d8d73809f61404edd4329ceeb8d229028e517e990bd7959cd4.js integrity="sha256-PZnZUGeUkdjXOAn2FATt1DKc7rjSKQKOUX6ZC9eVnNQ=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/hub/><span>Manifold Finance Hub</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/>OpenMEV Documentation</a>
+<ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/rebate/>Rebating Transaction Costs</a>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/openmev/functions_table/>SushiSwap Router Function Calls</a>
+</li>
+</ul>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/sushiswap/sushi-api/>Sushi API</a>
+</li>
+<li class=book-section-flat>
+<span>Technical</span>
+<ul>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/technical/katex/>Katex</a>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/technical/mermaid/>Mermaid</a>
+</li>
+</ul>
+</li>
+<li>
+<a href=https://manifoldfinance.github.io/hub/docs/sushiswap/>OpenMEV Documentation</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href=/hub/posts/>
+Blog
+</a>
+</li>
+<li>
+<a href=https://github.com/manifoldfinance/hub target=_blank rel=noopener>
+View on Github
+</a>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/hub/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>DAO_Corollary</strong>
+<label for=toc-control>
+<img src=/hub/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#dao-corollary-for-teams>DAO Corollary, For Teams</a>
+<ul>
+<li><a href=#an-aside-amdahls-law>An Aside: Amdahl’s Law</a></li>
+<li><a href=#generalising-to-the-amount-of-work>Generalising To The Amount Of Work</a></li>
+<li><a href=#so-what-does-it-all-mean>So, What Does It All Mean?</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown>
+<h1>
+<a href=/hub/posts/dao_corollary/>DAO_Corollary</a>
+</h1>
+<h5>10.11.2021</h5>
+<h1 id=dao-corollary-for-teams>
+DAO Corollary, For Teams
+<a class=anchor href=#dao-corollary-for-teams>#</a>
+</h1>
+<blockquote>
+<p>F.K.A. Amdahl&rsquo;s Corollary</p>
+</blockquote>
+<p>The most efficient way to implement a piece of software is to do it all yourself.</p>
+<p>No time is wasted communicating (or arguing); everything that needs to be done is done by the same person, which increases their ability to maintain the software; and the code is by default way more consistent.</p>
+<p>Turns out “more efficient” doesn’t mean “faster”. When there are more people working on the same problem, we can parallelized more at once.</p>
+<p>When we break work up across a team, in order to optimise for the team, we often have to put <em>more</em> work in, individually, to ensure that the work can be efficiently parallelized. This includes explaining concepts, team meetings, code review, pair programming, etc. But by putting that work in, we make the work more parallelized, speeding up and allowing us to make greater gains in the future.</p>
+<h2 id=an-aside-amdahls-law>
+An Aside: Amdahl’s Law
+<a class=anchor href=#an-aside-amdahls-law>#</a>
+</h2>
+<p>Amdahl’s law can be formulated as follows:</p>
+<p>Slatency=1(1-p)+ps</p>
+<p>In words, it predicts the maximum potential speedup (Slatency), given a proportion of the task, p, that will benefit from improved (either more or better) resources, and a parallel speedup factor, s.</p>
+<p>To demonstrate, if we can speed up 10% of the task (p=0.1) by a factor of 5 (s=5), we get the following:</p>
+<p>Slatency=1(1-0.1)+0.15≈1.09</p>
+<p>That’s about an 9% speedup. Eh, fair enough. If we can swing it, sounds good.</p>
+<p>However, if we can speed up 90% of the task (p=0.9) by a factor of 5 (s=5), we get the following:</p>
+<p>Slatency=1(1-0.9)+0.95≈3.58</p>
+<p>That’s roughly a 250% increase! Big enough that it’s actually worth creating twice as much work; it still pays off, assuming the value of the work dwarfs the cost of the resources.</p>
+<p>s→∞, which means ps→0, so we can also drop the ps term if we can afford potentially infinite resources at no additional cost.</p>
+<p>Slatency=11-0.9=10</p>
+<p>In other words, if 90% of the work can be parallelised, we can achieve a theoretical maximum speedup of 10x, or a 900% increase. This is highly unlikely, but gives us a useful upper bound to help us identify where the bottleneck lies.</p>
+<h2 id=generalising-to-the-amount-of-work>
+Generalising To The Amount Of Work
+<a class=anchor href=#generalising-to-the-amount-of-work>#</a>
+</h2>
+<p>Typically, we start off with a completely serial process. In order to parallelize, we need to do <em>more</em> work. It doesn’t come for free.</p>
+<p>This means that when computing s, the parallel speedup, we should divide it by the cost of parallelisation. For example, if the cost is 2, that means that making the work <em>parallelisable</em> (without actually increasing the number of resources) makes the parallel portion take twice as long as it used to. (The serial portion is unchanged.)</p>
+<p>So, if we take the example from earlier, where 90% of the work is parallelisable <em>but</em> it costs twice as much to parallelize, we’ll get the following result:</p>
+<p>Slatency=1(1-0.9)+0.952≈2.18</p>
+<p>It’s still about a 117% increase in output!</p>
+<p>However, if p=0.1, then there’s really very little point in adding more resources.</p>
+<p>Slatency=1(1-0.1)+0.152≈1.06</p>
+<p>And if the cost of parallelization is greater than the potential speedup, bad things happen:</p>
+<p>Slatency=1(1-0.1)+0.1520≈0.769</p>
+<p>Adding 4 more resources slows us down by 23%. Many of us have seen this happen in practice with poor parallelization techniques—poor usage of locks, resource contention (especially with regards to I/O), or even redundant work due to mismanaged job distribution.</p>
+<h2 id=so-what-does-it-all-mean>
+So, What Does It All Mean?
+<a class=anchor href=#so-what-does-it-all-mean>#</a>
+</h2>
+<p>Amdahl’s law tells us something very insightful: when the value of your work is much greater than the cost, you should optimise for parallelism, not efficiency. The cost of a weekly two-hour team meeting is high (typically in the $1000s each time), but if it means that you can have 7 people on the team, not 3, it’s often worth it.</p>
+<p><a href=https://en.wikipedia.org/wiki/Gustafson%27s_law>Delivering faster means you can deliver more.</a></p>
+<p>Don’t stop at optimizing meetings. Pairing costs money, but it usually means way better team cohesion, which improves your ability to parallelise. Better to have 10 people working on 5 problems and doing a better job than it is to have 10 people working on 10 problems.</p>
+<p>The former will lead to fewer conflicts, fewer defects and a much more motivated team. In other words (and by words I mean algebra), p and s both go up way faster than the amount of work.</p>
+<p>Yes, meetings and other collaboration enhancers are boring. But they’re necessary. Just make sure you never lose sight of their purpose: to build a shared vision and style of work so that the team (or the organization) works as one unit. This allows us to grow the team and benefit from the increased number of people on the job.</p>
+<p>Conversely, if all the knowledge of how the product works is in one person’s head, p≈0. While there’s no impact to efficiency this way, it limits our ability to produce, because one person can only do so much. Adding more people just makes things slower.</p>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+<div>
+<a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/edit/main/content/content/posts/DAO_Corollary.md target=_blank rel=noopener>
+<img src=/hub/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span>
+</a>
+</div>
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#dao-corollary-for-teams>DAO Corollary, For Teams</a>
+<ul>
+<li><a href=#an-aside-amdahls-law>An Aside: Amdahl’s Law</a></li>
+<li><a href=#generalising-to-the-amount-of-work>Generalising To The Amount Of Work</a></li>
+<li><a href=#so-what-does-it-all-mean>So, What Does It All Mean?</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>
