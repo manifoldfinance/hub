@@ -15,8 +15,7 @@ Governance, Development and Community resources. This will take you the appropri
 - [@openmev/sdk](https://github.com/manifoldfinance/openmev-sdk) Well-typed Nodejs SDK
 - [Docker Hub](https://github.com/openmev/docker-hub)
 - [qAbiEncoder](https://github.com/manifoldfinance/qAbiEncode) C Library for q/kdb+ to process EVM ABI
-- [qBig Integer](https://github.com/manifoldfinance/qBigInt)
-Library for big integer support for q/kdb+
+- [qBig Integer](https://github.com/manifoldfinance/qBigInt) Library for big integer support for q/kdb+
 - [qQuarticRoots](https://github.com/manifoldfinance/qQuarticRoots)
 
 <--->
@@ -32,7 +31,7 @@ Library for big integer support for q/kdb+
 {{< /columns >}}
 
 
-## OpenMEV
+## OpenMEV 
 
 The @openmev/sdk offers multiple packages, for example here is an ethers.js provider
 using OpenMEVs backend platform to provide trade execution services to end users.
