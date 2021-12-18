@@ -1,12 +1,12 @@
 {
   "name": "@manifoldfinance/hub",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "",
   "main": "index.js",
   "scripts": {
-"deploy": "npx gh-pages -d public/"
-},
+    "deploy": "npx gh-pages -d public/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/manifoldfinance/hub.git"
