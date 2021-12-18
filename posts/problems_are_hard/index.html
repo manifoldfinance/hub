@@ -2,15 +2,17 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Uniswap V3">
+<meta name=description content="All Problems Are Hard #   Aren’t all problems hard?
+ Say a customer reports a bug, and you’ve got to fix it. You can fix it. You know you can fix it. Maybe it’ll take an hour, maybe it’ll take a day, maybe a week. But you’ll narrow it down, figure out the smallest possible increment of work you can do to remedy the problem, and then you’ll do it.">
 <meta name=theme-color content="#FFFFFF">
-<meta name=color-scheme content="light dark"><meta property="og:title" content="UniSwap V3">
-<meta property="og:description" content="Uniswap V3">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Problems_Are_hard">
+<meta property="og:description" content="All Problems Are Hard #   Aren’t all problems hard?
+ Say a customer reports a bug, and you’ve got to fix it. You can fix it. You know you can fix it. Maybe it’ll take an hour, maybe it’ll take a day, maybe a week. But you’ll narrow it down, figure out the smallest possible increment of work you can do to remedy the problem, and then you’ll do it.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://manifoldfinance.github.io/hub/posts/uniswapv3/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-10-14T16:30:31-07:00">
-<meta property="article:modified_time" content="2021-10-25T06:43:21-07:00">
-<title>UniSwap V3 | Manifold Finance Hub</title>
+<meta property="og:url" content="https://manifoldfinance.github.io/hub/posts/problems_are_hard/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-11-10T09:28:13-08:00">
+<meta property="article:modified_time" content="2021-12-18T09:50:35-08:00">
+<title>Problems_Are_hard | Manifold Finance Hub</title>
 <link rel=manifest href=/hub/manifest.json>
 <link rel=icon href=/hub/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/hub/book.min.95d69eb6bad8b9707ff2b5d8d9e31ce70a1b84f2ed7ffaf665ffcf00aa7993bd.css integrity="sha256-ldaetrrYuXB/8rXY2eMc5wobhPLtf/r2Zf/PAKp5k70=" crossorigin=anonymous>
@@ -85,7 +87,7 @@ View on Github
 <label for=menu-control>
 <img src=/hub/svg/menu.svg class=book-icon alt=Menu>
 </label>
-<strong>UniSwap V3</strong>
+<strong>Problems_Are_hard</strong>
 <label for=toc-control>
 <img src=/hub/svg/toc.svg class=book-icon alt="Table of Contents">
 </label>
@@ -93,53 +95,45 @@ View on Github
 <aside class="hidden clearfix">
 <nav id=TableOfContents>
 <ul>
-<li><a href=#uniswap-v3>UniSwap V3</a></li>
+<li><a href=#all-problems-are-hard>All Problems Are Hard</a></li>
 </ul>
 </nav>
 </aside>
 </header>
 <article class=markdown>
 <h1>
-<a href=/hub/posts/uniswapv3/>UniSwap V3</a>
+<a href=/hub/posts/problems_are_hard/>Problems_Are_hard</a>
 </h1>
-<h5>14.10.2021</h5>
-<h1 id=uniswap-v3>
-UniSwap V3
-<a class=anchor href=#uniswap-v3>#</a>
+<h5>10.11.2021</h5>
+<h1 id=all-problems-are-hard>
+All Problems Are Hard
+<a class=anchor href=#all-problems-are-hard>#</a>
 </h1>
-<p>_For Uniswap V3,
-$\left(
-r_1 + \frac{C_1}{\sqrt{\mathcal{A}}-1}
-\right) \cdot
-\left(
-r_2 + \frac{C_2}{\sqrt{\mathcal{A}}-1}
-\right) = \frac{
-\mathcal{A} \cdot C_1 \cdot C_2}{(\sqrt{\mathcal{A}} -1)^2}$
-and the formula from the white paper</p>
-<p>$(x+\frac{L}{\sqrt{pb}})(y+L\sqrt{pa}) = L^2$</p>
-<p>equation (2.2) page 2 from Adams, H., Zinsmeister, N., Salem moody, M., River Keefer, uniswaporg, & Robinson, D. (2021). Uniswap v3 Core.</p>
-<p>are in fact <strong>equivalent</strong>.</p>
-<p>This can be seen by equating their notation with ours in the following way:</p>
-<p>$L = \frac{\sqrt{\mathcal{A} \cdot C_1 \cdot C_2}}{\sqrt{\mathcal{A}} -1}$</p>
-<p>$x = r_1$</p>
-<p>$y = r_1$</p>
-<p>$pa = \frac{C_1 \cdot \mathcal{A}}{C_2}$</p>
-<p>$pb = \frac{C_1}{C_2 \cdot \mathcal{A}}$</p>
-<p>In particular, given any $L, pa, pb > 0$, one should be able to back out the corresponding $C_1, C_2, \mathcal{A}$ using the equation set above and arrive at:</p>
-<p>$\mathcal{A} = \sqrt{pa \cdot pb}$</p>
-<p>$C_1 = \frac{L[(pa \cdot pb)^\frac{1}{4}-1]}{\sqrt{pb}}$</p>
-<p>$C_2 = L[(pa \cdot pb)^\frac{1}{4}-1] \sqrt{pa}$</p>
-<p>Thus, our formula, same as the official formula, does not assume price range symmetry. There is therefore no need for $A_{lower}$ and $A_{upper}$.</p>
+<blockquote>
+<p>Aren’t all problems hard?</p>
+</blockquote>
+<p>Say a customer reports a bug, and you’ve got to fix it. You can fix it. You know you can fix it. Maybe it’ll take an hour, maybe it’ll take a day, maybe a week. But you’ll narrow it down, figure out the smallest possible increment of work you can do to remedy the problem, and then you’ll do it. And as much as it pains me to say it, because I want to be able to check that box that said I did the thing… this is the easy part.</p>
+<p>Once in a while, when we’re feeling brave, we also try to tackle the hard problem. We try to answer the questions that we usually avoid.</p>
+<ul>
+<li>Why was this bug caused in the first place?</li>
+<li>Did we know about it before the customer hit it, and if so, why didn’t we do anything about it?</li>
+<li>Was the customer upset? Did we make sure they’re happy again?</li>
+<li>Can we fix not just this bug, but all classes of this bug in the future?</li>
+<li>What are the root causes ingrained in our culture that made this bug possible?</li>
+<li>Can we change our culture to ensure this doesn’t happen again?</li>
+</ul>
+<p>These are the hard problems. We can’t always solve them. Maybe they’re too entrenched, maybe you don’t have the power, maybe others don’t see the problem, maybe they’re too expensive to fix. Or maybe you just don’t have the energy to fight this battle. We can’t fight all of them, after all.</p>
+<p>That way lies burnout.</p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/commit/98fb95c75affb955cf1177577ff9f83efd201146 title="Last modified by sam bacha | 25.10.2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/commit/760e1b547aacf81b5e74403418dc1747c9bd0d06 title="Last modified by sam bacha | 18.12.2021" target=_blank rel=noopener>
 <img src=/hub/svg/calendar.svg class=book-icon alt=Calendar>
-<span>25.10.2021</span>
+<span>18.12.2021</span>
 </a>
 </div>
 <div>
-<a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/edit/main/content/content/posts/uniswapv3.md target=_blank rel=noopener>
+<a class="flex align-center" href=https://github.com/manifoldfinance/hub.github.io/edit/main/content/content/posts/Problems_Are_hard.md target=_blank rel=noopener>
 <img src=/hub/svg/edit.svg class=book-icon alt=Edit>
 <span>Edit this page</span>
 </a>
@@ -155,7 +149,7 @@ and the formula from the white paper</p>
 <div class=book-toc-content>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#uniswap-v3>UniSwap V3</a></li>
+<li><a href=#all-problems-are-hard>All Problems Are Hard</a></li>
 </ul>
 </nav>
 </div>
